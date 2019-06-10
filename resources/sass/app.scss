@@ -1,0 +1,18 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+.customer{
+    display: block;
+}
+.customer img{
+    margin-left:40%;
+}
+.customer p{
+    text-align: center;
+    font-style:italic;
+}
