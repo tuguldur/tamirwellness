@@ -2,6 +2,7 @@ $(function() {
     console.log("Message being loaded");
     function getMessage() {
         console.log("Getting message");
+        $("#table-new ,#table-read, #table-archived").html("");
         $(".table-loading").removeClass("d-none");
         $(".table-responsive").addClass("d-none");
         $.get("/admin/book/get", function(data) {
@@ -103,7 +104,6 @@ $(function() {
         );
     });
     $("#inbox-modal").on("hidden.bs.modal", function() {
-        $("#table-new ,#table-read, #table-archived").html("");
         $("#inbox-toolbar").show();
         getMessage();
     });

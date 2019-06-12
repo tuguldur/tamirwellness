@@ -6,52 +6,90 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">Comment</h4>
+               <div class="comment-header">
+                  <h4 class="card-title">Comment</h4>
+                  <div class="spacer"></div>
+                  <a href="#" id="add_comment">Add Comment</a>
+               </div>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
+                  <table class="table table-hover comment-table">
+                    <thead class="text-primary">
                       <th>
                         Name
                       </th>
                       <th>
                         Comment
                       </th>
-                      <th class="text-right">
-                        Action
-                      </th>
                     </thead>
-                    <tbody>
-                      @foreach ($comment as $comments)
-                      <tr>
-                          <td>
-                            {{$comments->name}}
-                          </td>
-                          <td class="comment">
-                              {{$comments->comment}}
-                          </td>
-                          <td class="text-right">
-                           <a href="#" class="comment-modal" data-key={{$comments->id}}>View</a>
-                           <a href="#" data-key={{$comments->id}}>Edit</a>
-                          </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
+                    <tbody id="comment-table"></tbody>
                   </table>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="col-md-12">
+          <div class="card card-plain">
+            <div class="card-header">
+              <h4 class="card-title">Comment Header Picture</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>
+                      Name
+                    </th>
+                    <th>
+                      Date
+                    </th>
+                  </thead>
+                  <tbody>
+                <tr>
+                  <td>
+                    image name
+                  </td>
+                  <td>
+                      image date
+                    </td>
+                </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      {{-- MODAL --}}
+      {{-- MODAL COMMENT --}}
       <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true" id="comment-modal">
-          <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-dialog  modal-dialog-centered">
             <div class="modal-content">
-
-              ..
-            
+            <h2 class="comment-title"></h2>
+            <div class="comment-body">
+              <span id="comment-text"></span>
+              <div class="comment-form">
+                <input type="text" class="form-control" placeholder="Name" id="comment-name">
+                <textarea class="form-control mt-3 dev-textarea" placeholder="Comment" rows="5" id="comment-value"></textarea>
+              </div>
+              <div id="inbox-toolbar">
+                <div class="spacer"></div>
+                       <div class="toolbar comment-save">
+                        <a href="#" class="text-info">Save</a>
+                       </div>
+                       <div class="toolbar comment-edit">
+                        <a href="#" class="text-info">Edit</a>
+                       </div>
+                       <div class="toolbar comment-delete">
+                        <a href="#" class="text-danger">Delete</a>
+                       </div>
+                       <div class="toolbar comment-edited d-none">
+                        <a href="#" class="text-info">Save</a>
+                       </div>
+                <div class="spacer"></div>
+                </div>
+          </div>
           </div>
           </div>
         </div>

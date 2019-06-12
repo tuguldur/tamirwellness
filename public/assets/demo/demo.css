@@ -326,3 +326,21 @@ td {
 .comment {
     max-width: 210px;
 }
+.comment-title {
+    padding: 20px 24px 9px;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    margin-bottom: 0;
+}
+.comment-body {
+    padding: 20px;
+}
+.comment-header {
+    display: flex;
+}
+.comment-header a {
+    padding: 18px;
+}
+.dev-textarea {
+    padding: 0.375rem 0.75rem !important;
+}
