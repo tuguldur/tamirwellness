@@ -9,23 +9,31 @@
                 <h4 class="card-title">Edit Contact</h4>
               </div>
               <div class="card-body">
-                  <form>
+                  <form action='/admin/contact' method="POST">
                       <div class="form-group">
                         <label for="contact_phone_number">Phone Number</label>
-                        <input type="number" class="form-control" id="contact_phone_number" placeholder="Phone Number">
-                        <small id="emailHelp" class="form-text text-muted">Helper text</small>
+                        <input type="text" class="form-control" id="contact_phone_number" placeholder="Phone Number" name="phone_number" value="{{$contact->phone_number}}" required>
+                        <small id="emailHelp" class="form-text text-muted">+976 XXXX XXXX</small>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email">
+                        <label for="contact_email">Email</label>
+                        <input type="email" class="form-control" id="contact_email" placeholder="Email" name="email" value="{{$contact->email}}" required>
+                
                       </div>
                       <div class="form-group">
-                          <label for="exampleInputPassword1">Location</label>
-                          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Location">
+                          <label for="contact_phone_number">Location</label>
+                          <input type="text" class="form-control" id="contact_location" placeholder="Location" name="location" value="{{$contact->location}}" required>
                         </div>
-                      <button type="submit" class="btn btn-primary">Save</button>
+                      <button type="submit" class="btn btn-primary" disabled id="contact_submit">Save</button>
+                      @csrf
                     </form>
             </div>
+            <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-history"></i> Updated {{$contact->updated_at->diffForHumans()}}
+                </div>
+              </div>
           </div>
         </div>
       </div>

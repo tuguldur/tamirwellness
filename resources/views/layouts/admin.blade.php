@@ -167,5 +167,6 @@
 <script src="{{Request::is('admin/book') ? asset('assets/js/book.js'): ''}}"></script>
 <script src="{{Request::is('admin/comment') ? asset('assets/js/comment.js'): ''}}"></script>
 <script src="{{Request::is('admin/comment') ? asset('assets/js/comment_header.js'): ''}}"></script>
+<script src="{{Request::is('admin/contact') ? asset('assets/js/contact.js'): ''}}"></script>
 </body>
 </html>

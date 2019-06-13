@@ -39,7 +39,9 @@ Route::get('/admin/comment/get', 'adminComment@get');
 Route::get('/admin/comment/{id}', 'adminComment@view');
 Route::post('/admin/comment','adminComment@save');
 Route::post('/admin/comment/update','adminComment@update');
+// Contact Routes
+Route::get('/admin/contact','adminContact@index');
+Route::post('/admin/contact','adminContact@save');
 // Admin panel views
-Route::get('/admin/contact', function () {return view('admin/contact');})->middleware('auth');
 Route::get('/admin/home', function () {return view('admin/home');})->middleware('auth');
 Route::get('/admin/blank', function () {return view('admin/blank');})->middleware('auth');
