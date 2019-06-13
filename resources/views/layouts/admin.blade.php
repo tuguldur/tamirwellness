@@ -166,5 +166,6 @@
 <script>{{ Request::is('admin') ? '$(document).ready(function() {demo.initChartsPages();});':''}}</script>
 <script src="{{Request::is('admin/book') ? asset('assets/js/book.js'): ''}}"></script>
 <script src="{{Request::is('admin/comment') ? asset('assets/js/comment.js'): ''}}"></script>
+<script src="{{Request::is('admin/comment') ? asset('assets/js/comment_header.js'): ''}}"></script>
 </body>
 </html>

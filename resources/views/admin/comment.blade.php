@@ -33,29 +33,24 @@
         <div class="col-md-12">
           <div class="card card-plain">
             <div class="card-header">
-              <h4 class="card-title">Comment Header Picture</h4>
+                <div class="comment-header">
+                    <h4 class="card-title">Comment Header Picture</h4>
+                    <div class="spacer"></div>
+                    <a href="#" id="add_comment_header">Add Header</a>
+                 </div>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead class=" text-primary">
+              <div class="table-responsive ">
+                <table class="table table-hover">
+                  <thead class="text-primary">
                     <th>
                       Name
                     </th>
                     <th>
-                      Date
+                      Updated
                     </th>
                   </thead>
-                  <tbody>
-                <tr>
-                  <td>
-                    image name
-                  </td>
-                  <td>
-                      image date
-                    </td>
-                </tr>
-                  </tbody>
+                  <tbody id="comment-header"></tbody>
                 </table>
               </div>
             </div>
@@ -92,5 +87,30 @@
           </div>
           </div>
           </div>
+        </div>
+        {{-- MODAL COMMENT HEADER --}}
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true" id="comment-header-modal">
+          <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="comment-header-title" placeholder="Header Picture Name">
+                    </div>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="headerFile">
+                <label class="custom-file-label" for="headerFile">Choose file</label>
+              </div>   </form>
+              <div id="inbox-toolbar">
+                <div class="spacer"></div>
+                <div class="toolbar" id="comment-header-view">
+                        <a href="#" class="text-info" >view</a>
+                       </div>
+                       <div class="toolbar" id="comment-header-save">
+                        <a href="#" class="text-info" >Save</a>
+                       </div>
+                <div class="spacer"></div>
+                </div>
+           </div>
+         </div>
         </div>
     @endsection
