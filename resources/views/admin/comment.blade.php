@@ -103,7 +103,7 @@
               <div id="inbox-toolbar">
                 <div class="spacer"></div>
                 <div class="toolbar" id="comment-header-view">
-                        <a href="#" class="text-info" >view</a>
+                        <a href="#" class="text-info" target="_blank">view</a>
                        </div>
                        <div class="toolbar" id="comment-header-save">
                         <a href="#" class="text-info" >Save</a>
