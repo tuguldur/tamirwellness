@@ -92,21 +92,25 @@
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true" id="comment-header-modal">
           <div class="modal-dialog  modal-dialog-centered">
             <div class="modal-content">
-                <form>
+              <form>
                     <div class="form-group">
                       <input type="text" class="form-control" id="comment-header-title" placeholder="Header Picture Name">
                     </div>
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="headerFile">
-                <label class="custom-file-label" for="headerFile">Choose file</label>
+                <input type="file" class="custom-file-input" id="headerFile" accept="image/*">
+                <label class="custom-file-label" for="headerFile">Choose file...</label>
+              
               </div>   </form>
               <div id="inbox-toolbar">
                 <div class="spacer"></div>
                 <div class="toolbar" id="comment-header-view">
                         <a href="#" class="text-info" target="_blank">view</a>
                        </div>
+                       <div class="toolbar comment-header-delete">
+                        <a href="#" class="text-danger">Delete</a>
+                       </div>
                        <div class="toolbar" id="comment-header-save">
-                        <a href="#" class="text-info" >Save</a>
+                        <a href="#" class="text-info">Save</a>
                        </div>
                 <div class="spacer"></div>
                 </div>

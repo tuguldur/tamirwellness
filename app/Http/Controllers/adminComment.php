@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Comment;
 use App\commentHeader;
 class adminComment extends Controller
@@ -45,15 +46,36 @@ class adminComment extends Controller
         return response()->json($comment);
     }
     public function updateheader(Request $request){
+        $status = '';
         $id = $request->id;
-        $comment_header;
-        if($id==0) $comment_header = new commentHeader;
-        else $comment_header = commentHeader::findOrFail($id);
-        
-        $path = $request->file('file')->store('public/image');
-        $comment_header->name= $request->name;
-        $comment_header->src = $path;
-        $comment_header->save();
-       return response()->json($comment_header);
+        // THIS SHIT WILL UPDATE
+        if(empty($request->hasFile('file'))){
+            $comment_header = commentHeader::findOrFail($id);
+            $comment_header->name= $request->name;
+            $comment_header->save();
+            $status = 'text updated';
+        } 
+        else if($id!=='0' && $request->hasFile('file')){
+            $comment_header = commentHeader::findOrFail($id);
+            $path = $request->file('file')->store('public/image');
+            $comment_header->name= $request->name;
+            $comment_header->src = $path;
+            $comment_header->save();
+            $status = 'updated';
+        }
+        else{
+            $comment_header = new commentHeader;
+            $path = $request->file('file')->store('public/image');
+            $comment_header->name= $request->name;
+            $comment_header->src = $path;
+            $comment_header->save();
+            $status = 'added';
+        }
+       return response()->json($status);
+    }
+    public function deleteHeader($id){
+        $comment_header = commentHeader::find($id);
+        $comment_header->delete();
+        return 'ok';
     }
 }

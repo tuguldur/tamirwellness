@@ -76,7 +76,18 @@
                   <i class="nc-icon nc-app"></i>
                   <p>Blank</p>
                 </a>
+              </li> <li class="{{ Request::is('admin/service') ? 'active' : '' }}">
+                <a href="{{url('/admin/service')}}">
+                  <i class="nc-icon nc-settings-gear-65"></i>
+                  <p>Service</p>
+                </a>
               </li>
+            </li> <li class="{{ Request::is('admin/user') ? 'active' : '' }}">
+              <a href="{{url('/admin/user')}}">
+                <i class="nc-icon nc-user-run"></i>
+                <p>Users</p>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -129,15 +140,16 @@
                   <div
                     class="dropdown-menu dropdown-menu-right"
                     aria-labelledby="navbarDropdownMenuLink"
-                  >  <a class="dropdown-item" href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
+                  > 
+                  <a class="dropdown-item" href="{{url('/admin/profile')}}">
+                    Profile
+                 </a>
+                  <a class="dropdown-item last-child" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                    {{ __('Logout') }}
-               </a>
-
-               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                 </a>
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                    @csrf
-               </form>
+                 </form>
                   </div>
                 </li>
               </ul>
@@ -168,5 +180,6 @@
 <script src="{{Request::is('admin/comment') ? asset('assets/js/comment.js'): ''}}"></script>
 <script src="{{Request::is('admin/comment') ? asset('assets/js/comment_header.js'): ''}}"></script>
 <script src="{{Request::is('admin/contact') ? asset('assets/js/contact.js'): ''}}"></script>
+<script src="{{Request::is('admin/home') ? asset('assets/js/home_header.js'): ''}}"></script>
 </body>
 </html>

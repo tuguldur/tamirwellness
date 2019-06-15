@@ -31,6 +31,7 @@ Route::post('/admin/book/update','adminBook@update');
 // Comment Header Routes
 Route::get('/admin/comment/header', 'adminComment@header');
 Route::get('/admin/comment/header/{id}', 'adminComment@headerFind');
+Route::get('/admin/comment/header/delete/{id}','adminComment@deleteHeader');
 Route::post('/admin/comment/header', 'adminComment@updateheader');
 // Comment Routes
 Route::get('/admin/comment','adminComment@index');
@@ -42,6 +43,12 @@ Route::post('/admin/comment/update','adminComment@update');
 // Contact Routes
 Route::get('/admin/contact','adminContact@index');
 Route::post('/admin/contact','adminContact@save');
+// Home Header Routes
+Route::get('/admin/home/', 'adminHomeHeader@index');
+Route::get('/admin/home/header','adminHomeHeader@getHeader');
+Route::get('/admin/home/header/{id}','adminHomeHeader@find');
+Route::get('/admin/home/header/delete/{id}','adminHomeHeader@delete');
+Route::post('/admin/home/header','adminHomeHeader@save');
+Route::post('/admin/home/header/edit','adminHomeHeader@edit');
 // Admin panel views
-Route::get('/admin/home', function () {return view('admin/home');})->middleware('auth');
 Route::get('/admin/blank', function () {return view('admin/blank');})->middleware('auth');
