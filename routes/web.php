@@ -50,5 +50,10 @@ Route::get('/admin/home/header/{id}','adminHomeHeader@find');
 Route::get('/admin/home/header/delete/{id}','adminHomeHeader@delete');
 Route::post('/admin/home/header','adminHomeHeader@save');
 Route::post('/admin/home/header/edit','adminHomeHeader@edit');
+// Home Main Routes
+Route::get('/admin/home/main','adminHomeMain@get');
+Route::get('/admin/home/main/{id}','adminHomeMain@find');
+Route::get('/admin/home/main/delete/{id}','adminHomeMain@delete');
+Route::post('/admin/home/main','adminHomeMain@save');
 // Admin panel views
 Route::get('/admin/blank', function () {return view('admin/blank');})->middleware('auth');

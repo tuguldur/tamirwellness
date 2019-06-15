@@ -32,11 +32,16 @@
           <div class="col-md-12">
             <div class="card card-plain">
               <div class="card-header">
-                <h4 class="card-title">Home Main Pictures</h4>
+                  <div class="comment-header">
+                      <h4 class="card-title">Home Main Picture</h4>
+                      <div class="spacer"></div>
+                      <a href="#" id="add_main">Add Header</a>
+                   </div>
               </div>
               <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
+                  <div class="text-center table-loading" id="home-main-loader">Loading....</div>
+                <div class="table-responsive" id="home-main-table" style="display:none">
+                  <table class="table table-hover">
                     <thead class=" text-primary">
                       <th>
                         Name
@@ -84,4 +89,32 @@
          </div>
        </div>
       </div>
+{{-- HOME MAIN ADD MODAL --}}
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true" id="home-main-modal">
+    <div class="modal-dialog  modal-dialog-centered">
+      <div class="modal-content">
+              <div class="form-group">
+                <input type="text" class="form-control" id="home-main-title" placeholder="Home Picture Name" />
+                <textarea class="form-control mt-3 dev-textarea" placeholder="Desc" rows="5" id="home-main-desc"></textarea>
+              </div>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="homeMainFile" accept="image/jpeg, image/png" name="file">
+          <label class="custom-file-label" for="homeMainFile">Choose file</label>
+        </div>  
+        <div id="inbox-toolbar">
+          <div class="spacer"></div>
+          <div class="toolbar" id="home-main-view">
+                  <a href="#" class="text-info" target="_blank">view</a>
+                 </div>
+                 <div class="toolbar" id="home-main-delete">
+                  <a href="#" class="text-danger">Delete</a>
+                 </div>
+                 <div class="toolbar" id="home-main-save">
+                  <a href="#" class="text-info" >Save</a>
+                 </div>
+          <div class="spacer"></div>
+          </div>
+     </div>
+   </div>
+  </div>
     @endsection
