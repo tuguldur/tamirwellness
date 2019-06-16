@@ -61,5 +61,8 @@ Route::get('/admin/user/get','adminUsers@get');
 // Service Routes
 Route::get('/admin/service','adminService@index');
 Route::get('/admin/service/create','adminService@create');
+// Profile Routes
+Route::get('/admin/profile','adminProfile@index');
+Route::post('/admin/profile','adminProfile@update');
 // Admin panel views
 Route::get('/admin/blank', function () {return view('admin/blank');})->middleware('auth');
