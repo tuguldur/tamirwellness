@@ -182,5 +182,6 @@
 <script src="{{Request::is('admin/contact') ? asset('assets/js/contact.js'): ''}}"></script>
 <script src="{{Request::is('admin/home') ? asset('assets/js/home_header.js'): ''}}"></script>
 <script src="{{Request::is('admin/home') ? asset('assets/js/home_main.js'): ''}}"></script>
+<script src="{{Request::is('admin/user') ? asset('assets/js/users.js'): ''}}"></script>
 </body>
 </html>
