@@ -167,15 +167,7 @@
 <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
 <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
-<!-- Chart JS -->
-<script src="{{asset('assets/js/plugins/chartjs.min.js')}}"></script>
-<!--  Notifications Plugin    -->
-<script src="{{asset('assets/js/plugins/bootstrap-notify.js')}}"></script>
-<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{asset('assets/js/paper-dashboard.min.js?v=2.0.0')}}" type="text/javascript"></script>
-<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-<script src="{{ Request::is('admin') ? asset('assets/demo/demo.js') : ''}}"></script>
-<script>{{ Request::is('admin') ? '$(document).ready(function() {demo.initChartsPages();});':''}}</script>
 <script src="{{Request::is('admin/book') ? asset('assets/js/book.js'): ''}}"></script>
 <script src="{{Request::is('admin/comment') ? asset('assets/js/comment.js'): ''}}"></script>
 <script src="{{Request::is('admin/comment') ? asset('assets/js/comment_header.js'): ''}}"></script>

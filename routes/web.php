@@ -58,5 +58,8 @@ Route::post('/admin/home/main','adminHomeMain@save');
 // Users Routes
 Route::get('/admin/user','adminUsers@index');
 Route::get('/admin/user/get','adminUsers@get');
+// Service Routes
+Route::get('/admin/service','adminService@index');
+Route::get('/admin/service/create','adminService@create');
 // Admin panel views
 Route::get('/admin/blank', function () {return view('admin/blank');})->middleware('auth');
