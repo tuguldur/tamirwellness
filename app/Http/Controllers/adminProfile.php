@@ -22,7 +22,7 @@ class adminProfile extends Controller
             $user->email = $request->email;
             $user->password = bcrypt($request->password);
             $user->save();
-            return redirect('/admin');
+            return response()->json(['status' => 'true']);
         }
         else{
             return response()->json(['status' => 'false']);

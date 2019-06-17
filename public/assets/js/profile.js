@@ -35,7 +35,7 @@ $(function() {
             $("#help_new_password").removeClass("text-muted");
             $("#help_new_password").addClass("text-danger");
             $("#help_new_password").html(message);
-        } else if (trimed_data.length <= 8) {
+        } else if (trimed_data.length <= 7) {
             $("#help_new_password").removeClass("text-danger");
             $("#help_new_password").addClass("text-muted");
             $("#help_new_password").html(
@@ -64,17 +64,32 @@ $(function() {
         var old_password = $("#old_password").val();
         var new_password = $("#new_password").val();
         var password = $("#new_password").val();
+        var token = $('meta[name="csrf-token"]').attr("content");
         console.log(
             `username: ${username} ,email: ${email} ,old_password: ${old_password} , new_password: ${new_password} , password: ${password}`
         );
         if (
             username &&
             email &&
-            old_password.length <= 8 &&
-            new_password.length <= 8 &&
-            password.length <= 8
+            old_password.length >= 8 &&
+            new_password.length >= 8 &&
+            password.length >= 8 &&
+            new_password == password
         ) {
-            console.log("ok");
+            $.post("/admin/profile", {
+                username,
+                email,
+                old_password,
+                new_password,
+                password,
+                _token: token
+            }).done(function(e) {
+                if (e.status == "false")
+                    $("#help_old_password").html("Password incorrect");
+                else window.location.href = "/admin";
+            });
+        } else {
+            console.warn("SOME THING WENT WRONG");
         }
     });
 });

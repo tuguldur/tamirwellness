@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,5 +64,16 @@ Route::get('/admin/service/create','adminService@create');
 // Profile Routes
 Route::get('/admin/profile','adminProfile@index');
 Route::post('/admin/profile','adminProfile@update');
-// Admin panel views
+// Blank Routes
 Route::get('/admin/blank', function () {return view('admin/blank');})->middleware('auth');
+Route::post('/admin/blank', function (Request $request) {dd($request);});
+// Image Upload Route
+Route::post('/upload_image',function(Request $req){
+    error_reporting(0);
+    $imageName = time().'.'.request()->file->getClientOriginalExtension();
+    request()->file->move(public_path('image/upload'), $imageName);
+    $path = "/image/upload/".$imageName;
+    return response()->json(["link" => $path]);
+});
+// Admin panel views
+

@@ -3,5 +3,5 @@
 @section('title','Admin | Service')
 <div class="content">
       <h1>Hello Service</h1>
-        </div>
+</div>
 @endsection
