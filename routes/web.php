@@ -23,13 +23,24 @@ Route::get('/book', 'adminBook@save');
 Auth::routes();
 Route::get('/admin', 'adminController@index')->name('home');
 //Route::get('/admin/book', function () {return view('admin/book');})->middleware('auth');
-// Book Routes
-Route::get('/admin/book', 'adminBook@index');
-Route::get('/admin/book/get', 'adminBook@get');
-Route::get('/admin/book/{id}', 'adminBook@view');
-Route::post('/admin/book/update','adminBook@update');
+
+Route::group(['middleware'=>'auth'], function(){
+    // Book Routes
+    Route::get('/admin/book', [
+        'uses' => 'adminBook@index',
+        'middleware' => 'roles',
+        'roles' => ['inbox','admin']
+    ]);
+    Route::get('/admin/book/get', 'adminBook@get');
+    Route::get('/admin/book/{id}', 'adminBook@view');
+    Route::post('/admin/book/update', 'adminBook@update');
+
 // Comment Header Routes
-Route::get('/admin/comment/header', 'adminComment@header');
+Route::get('/admin/comment/header', [
+    'uses' => 'adminComment@header',
+    'middleware' => 'roles',
+    'roles' => ['comment','admin']
+]);
 Route::get('/admin/comment/header/{id}', 'adminComment@headerFind');
 Route::get('/admin/comment/header/delete/{id}','adminComment@deleteHeader');
 Route::post('/admin/comment/header', 'adminComment@updateheader');
@@ -41,10 +52,18 @@ Route::get('/admin/comment/{id}', 'adminComment@view');
 Route::post('/admin/comment','adminComment@save');
 Route::post('/admin/comment/update','adminComment@update');
 // Contact Routes
-Route::get('/admin/contact','adminContact@index');
+Route::get('/admin/contact',[
+    'uses' => 'adminContact@index',
+    'middleware' => 'roles',
+    'roles' => ['contact','admin']
+]);
 Route::post('/admin/contact','adminContact@save');
 // Home Header Routes
-Route::get('/admin/home/', 'adminHomeHeader@index');
+Route::get('/admin/home/', [
+    'uses' => 'adminHomeHeader@index',
+    'middleware' => 'roles',
+    'roles' => ['home','admin']
+]);
 Route::get('/admin/home/header','adminHomeHeader@getHeader');
 Route::get('/admin/home/header/{id}','adminHomeHeader@find');
 Route::get('/admin/home/header/delete/{id}','adminHomeHeader@delete');
@@ -56,10 +75,21 @@ Route::get('/admin/home/main/{id}','adminHomeMain@find');
 Route::get('/admin/home/main/delete/{id}','adminHomeMain@delete');
 Route::post('/admin/home/main','adminHomeMain@save');
 // Users Routes
-Route::get('/admin/user','adminUsers@index');
-Route::get('/admin/user/get','adminUsers@get');
+Route::get('/admin/user',[
+    'uses' => 'adminUsers@index',
+    'middleware' => 'roles',
+    'roles' => ['admin']
+]);
+Route::get('/admin/user/{id}','adminUsers@find');
+Route::get('/admin/user/delete/{id}','adminUsers@delete');
+Route::post('/admin/user/check/','adminUsers@check');
+Route::post('/admin/user/add','adminUsers@add');
 // Service Routes
-Route::get('/admin/service','adminService@index');
+Route::get('/admin/service',[
+    'uses' => 'adminService@index',
+    'middleware' => 'roles',
+    'roles' => ['service', 'admin']
+]);
 Route::get('/admin/service/create','adminService@create');
 // Profile Routes
 Route::get('/admin/profile','adminProfile@index');
@@ -74,6 +104,7 @@ Route::post('/upload_image',function(Request $req){
     request()->file->move(public_path('image/upload'), $imageName);
     $path = "/image/upload/".$imageName;
     return response()->json(["link" => $path]);
+});
 });
 // Admin panel views
 

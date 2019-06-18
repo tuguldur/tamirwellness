@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
-
+use App\User;
+use App\Role;
 class users_seed extends Seeder
 {
     /**
@@ -12,12 +13,14 @@ class users_seed extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => Str::random(10),
-            'email' => 'admin@brainstall.com',
-            'password' => bcrypt('Password'),
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-        ]);
+            $role_admin = Role::where('name','admin')->first();
+            $admin = new User();
+            $admin->name = Str::random(10);
+            $admin->email = 'admin@brainstall.com';
+            $admin->password = bcrypt('Password');
+            $admin->created_at = Carbon::now()->format('Y-m-d H:i:s');
+            $admin->updated_at = Carbon::now()->format('Y-m-d H:i:s');
+            $admin->save();
+            $admin->roles()->attach($role_admin);
     }
 }
