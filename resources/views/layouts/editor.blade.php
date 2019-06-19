@@ -25,11 +25,11 @@
   <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/help.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/editor/third_party/spell_checker.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/special_characters.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
 </head>
 
 <body>
-    <a href="/admin">Back</a>
     @yield('content')
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
@@ -67,48 +67,52 @@
     <script type="text/javascript" src="{{asset('assets/js/editor/plugins/word_paste.min.js')}}"></script>
     <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
     <script>
+       function getData(){
+              $.get('/admin/blank/get',function(data){
+                $('#view').html(data);
+              });
+            }
+            getData();
             var token = $('meta[name="csrf-token"]').attr("content");
             var editor = new FroalaEditor('#editor', {
               // Set the save param.
               saveParam: 'content',
-          
-              // Set the save URL.
+              videoUploadParam: 'file',
+              videoUploadURL: '/upload_video',
+              videoUploadParams: {
+                _token:token
+                },
+              videoUploadMethod: 'POST',
+              // Set max video size to 50MB.
+              videoMaxSize: 50 * 1024 * 1024,
+              videoAllowedTypes: ['mp4', 'ogg'],
+
+              // Image upload
               saveURL: 'http://localhost:8000/admin/blank',
               imageUploadURL: '/upload_image',
               imageUploadParams: {
                  _token: token // This passes the laravel token with the ajax request.
                  },
-              // HTTP request type.
               saveMethod: 'POST',
-          
-              // Additional save params.
-              saveParams: {_token: token},
-          
-              events: {
-                'save.before': function () {
-                  // Before save request is made.
+              saveParams: {
+                _token: token
                 },
-                'image.uploaded': function (response) {
-                  console.log(response[0].link);
-                var img_url = response.link ;
-                //editor.image.insert(img_url, true);
-                },
-                'save.after': function () {
-                  // After successfully save request.
-                },
-          
-                'save.error': function () {
-                  // Do something here.
+                events: {
+                  'save.error': function (error, response) {
+                    location.reload();
+                  }
                 }
-              }
+              
             });
           </script>
           <script>
-             
+           
             document.querySelector('#saveButton').addEventListener("click", function () {
               editor.save.save();
-            })
-              </script>
+              getData();
+            });
+            
+          </script>
 </body>
 
 </html>

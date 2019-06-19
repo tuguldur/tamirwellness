@@ -12,10 +12,19 @@ use Illuminate\Http\Request;
 */
 // client routes
 Route::get('/', function () {
-    return view('client/welcome');
+    return view('client/index');
+});
+Route::get('/comment', function () {
+    return view('client/comment');
 });
 Route::get('/contact', function () {
     return view('client/contact');
+});
+Route::get('/service', function () {
+    return view('client/service');
+});
+Route::get('/blank', function () {
+    return view('client/blank');
 });
 // Client send booking req
 Route::get('/book', 'adminBook@save');
@@ -95,16 +104,12 @@ Route::get('/admin/service/create','adminService@create');
 Route::get('/admin/profile','adminProfile@index');
 Route::post('/admin/profile','adminProfile@update');
 // Blank Routes
-Route::get('/admin/blank', function () {return view('admin/blank');})->middleware('auth');
-Route::post('/admin/blank', function (Request $request) {dd($request);});
-// Image Upload Route
-Route::post('/upload_image',function(Request $req){
-    error_reporting(0);
-    $imageName = time().'.'.request()->file->getClientOriginalExtension();
-    request()->file->move(public_path('image/upload'), $imageName);
-    $path = "/image/upload/".$imageName;
-    return response()->json(["link" => $path]);
-});
-});
-// Admin panel views
+Route::get('/admin/blank','adminBlank@index');
+Route::get('/admin/blank/get','adminBlank@get');
+Route::post('/admin/blank','adminBlank@save');
+// Upload Route
+Route::post('/upload_image','adminBlank@upload_image');
+Route::post('/upload_video','adminBlank@upload_video');
+});//AUTH MIDDLEWARE END
+
 
