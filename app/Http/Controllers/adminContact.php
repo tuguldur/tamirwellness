@@ -7,14 +7,17 @@ use App\Contact;
 class adminContact extends Controller
 {
   public function index(){
-      return view('admin/contact',['contact' => Contact::find(1)]);
+      $contact = Contact::find(1);
+      return view('admin/contact',['contact' => $contact]);
+   
   }
   public function save(Request $r){
     $contact = Contact::find(1);
     $contact->phone_number = $r->phone_number;
     $contact->email = $r->email;
     $contact->location = $r->location;
+    $contact->location_mn = $r->location_mn;
     $contact->save();
-    return view('admin/contact');
+    return back();
   }
 }

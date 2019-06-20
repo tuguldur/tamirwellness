@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class HomeMain extends Migration
+class CreateServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class HomeMain extends Migration
      */
     public function up()
     {
-        Schema::create('home_main', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('title');
             $table->string('desc');
+            $table->string('desc_mn');
             $table->string('src');
+            $table->longText('data');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class HomeMain extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('home_main');
+        Schema::dropIfExists('services');
     }
 }

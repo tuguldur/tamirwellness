@@ -18,13 +18,14 @@ class adminBook extends Controller
    public function save(Request $request)
    {  
        $book = new Book;
-       $book->name = $request->input('name');
-       $book->email = $request->input('email');
-       $book->message = $request->input('message');
-       $book->phone_number = $request->input('phone_number');
-       $book->start_date = $request->input('start_date');
-       $book->end_date = $request->input('end_date');
+       $book->name = $request->name;
+       $book->email = $request->email;
+       $book->message = $request->message;
+       $book->phone_number = $request->phone_number;
+       $book->start_date = $request->start_date;
+       $book->end_date =$request->end_date;
        $book->save();
+       return back();
    }
    public function view($id){
        $data = Book::findOrFail($id);

@@ -11,9 +11,7 @@ use Illuminate\Http\Request;
 |
 */
 // client routes
-Route::get('/', function () {
-    return view('client/index');
-});
+Route::get('/',  'Client\index@index');
 Route::get('/comment', function () {
     return view('client/comment');
 });
@@ -27,7 +25,7 @@ Route::get('/blank', function () {
     return view('client/blank');
 });
 // Client send booking req
-Route::get('/book', 'adminBook@save');
+Route::post('/book', 'adminBook@save');
 // Admin routes
 Auth::routes();
 Route::get('/admin', 'adminController@index')->name('home');

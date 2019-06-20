@@ -79,27 +79,28 @@
           
           <!-- Modal body -->
           <div class="modal-body">
-            <form style="width:100%; display:flex">
+            <form style="width:100%; display:flex" action="/book" method="POST">
+              @csrf
             <div class="col-md-6">
               <div class="col-md-12"><p class="formcss font" style="font-size:12px">Send us your booking request</p></div>
-              <div class="col-md-12" id="formcss"><input type="text" class="form-control" id="name form" placeholder="name" name="name"></div>
-              <div class="col-md-12" id="formcss"><input type="email" class="form-control" id="email form" placeholder="email" name="email"></div>
-              <div class="col-md-12" id="formcss"><input type="phone" class="form-control" id="number form" placeholder="phone number" name="number"></div>
-              <div class="col-md-12" id="formcss"><textarea type="text" class="form-control" id="messagse form" placeholder="message" name="message" style="height: 110px"></textarea></div>
+              <div class="col-md-12" id="formcss"><input type="text" class="form-control" id="name form" placeholder="name" name="name" required></div>
+              <div class="col-md-12" id="formcss"><input type="email" class="form-control" id="email form" placeholder="email" name="email" required></div>
+              <div class="col-md-12" id="formcss"><input type="phone" class="form-control" id="number form" placeholder="phone number" name="phone_number" required></div>
+              <div class="col-md-12" id="formcss"><textarea type="text" class="form-control" id="messagse form" placeholder="message" name="message" style="height: 110px" required></textarea></div>
             </div>
             <div class="col-md-6">
               <div class="col-md-12">
                 <p class="font" style="font-size:14px">When will you come?</p>
-                <input id="datepicker" width="100%" name="date_start" />
+                <input id="datepicker" width="100%" name="start_date" required />
                 <script>
-                    $('#datepicker').datepicker();
+                    $('#datepicker').datepicker({format:'yyyy/mm/dd'});
                 </script>
               </div>
               <div class="col-md-12" style="padding-top: 5%">
                   <p class="font" style="font-size:14px">When will you leave?</p>
-                  <input id="datepicker2" width="100%" name="date_end" />
+                  <input id="datepicker2" width="100%" name="end_date" required />
                   <script>
-                      $('#datepicker2').datepicker();
+                      $('#datepicker2').datepicker({format:'yyyy/mm/dd'});
                   </script>
                 </div>
             </div>

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class homeMain extends Model
+class Home_header extends Model
 {
-    protected $table = "home_main";
+    //
 }

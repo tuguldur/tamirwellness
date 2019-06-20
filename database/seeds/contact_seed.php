@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Carbon\Carbon;
+// use Carbon\Carbon;`
+use App\Contact;
 class contact_seed extends Seeder
 {
     /**
@@ -11,12 +12,11 @@ class contact_seed extends Seeder
      */
     public function run()
     {
-        DB::table('contact')->insert([
-            'phone_number' => '+976 9911 2044',
-            'location' => 'Tamir Camp Road, Terelj, Nalaikha, 12770, Mongolia',
-            'email' => 'info@tamirwellness.com',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-        ]);
-    }
+        $contact = new Contact;
+        $contact->phone_number = '+976 9911 2044';
+        $contact->location = 'Tamir Camp Road, Terelj, Nalaikha, 12770, Mongolia';
+        $contact->location_mn =  'Tamir Camp Road, Terelj, Nalaikha, 12770, Mongolia';
+        $contact->email = 'info@tamirwellness.com';
+        $contact->save();
+     }
 }

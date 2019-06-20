@@ -30,13 +30,8 @@ $(function() {
         $("#home-header-save a,#home-header-delete a").attr("data-key", id);
         $.get("/admin/home/header/" + id, function(e) {
             $("#home-header-title").val(e.name);
-            var hostname = $(location).attr("host");
             var image = e.src;
-            var d = image.substr(6);
-            $("#home-header-view a").attr(
-                "href",
-                `http://${hostname}/storage/${d}`
-            );
+            $("#home-header-view a").attr("href", image);
             console.log(e);
         });
     });

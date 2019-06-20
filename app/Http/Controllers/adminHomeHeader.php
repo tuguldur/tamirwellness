@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\homeHeader;
+use App\Home_header;
 class adminHomeHeader extends Controller
 {   
     // admin/home->get
@@ -12,12 +12,12 @@ class adminHomeHeader extends Controller
     }
     // admin/home/header->get
     public function getHeader(){
-        $homeHeader = homeHeader::all();
+        $homeHeader = Home_header::all();
         return response()->json($homeHeader);
     }
     // admin/home/header/{id}->get
     public function find($id){
-        $homeHeader = homeHeader::findOrFail($id);
+        $homeHeader = Home_header::findOrFail($id);
         return response()->json($homeHeader);
     }
     // admin/home/header/->post
@@ -26,22 +26,27 @@ class adminHomeHeader extends Controller
         $id = $request->id;
         // THIS SHIT WILL UPDATE
         if(empty($request->hasFile('file'))){
-            $homeHeader = homeHeader::findOrFail($id);
+            $homeHeader = Home_header::findOrFail($id);
             $homeHeader->name= $request->name;
             $homeHeader->save();
             $status = 'text updated';
         } 
         else if($id!=='0' && $request->hasFile('file')){
-            $homeHeader = homeHeader::findOrFail($id);
-            $path = $request->file('file')->store('public/image');
+            $imageName = time().'.'.request()->file->getClientOriginalExtension();
+            request()->file->move(public_path('image/upload'), $imageName);
+            $path = "/image/upload/".$imageName;
+            $homeHeader = Home_header::findOrFail($id);
             $homeHeader->name= $request->name;
             $homeHeader->src = $path;
             $homeHeader->save();
             $status = 'updated';
         }
         else{
-            $homeHeader = new homeHeader;
-            $path = $request->file('file')->store('public/image');
+                 
+            $imageName = time().'.'.request()->file->getClientOriginalExtension();
+            request()->file->move(public_path('image/upload'), $imageName);
+            $path = "/image/upload/".$imageName;
+            $homeHeader = new Home_header;
             $homeHeader->name= $request->name;
             $homeHeader->src = $path;
             $homeHeader->save();
@@ -51,7 +56,7 @@ class adminHomeHeader extends Controller
     }
     //admin/home/header/edit->post
     public function delete($id){
-        $homeHeader = homeHeader::find($id);
+        $homeHeader = Home_header::find($id);
         $homeHeader->delete();
         return 'ok';
     }
