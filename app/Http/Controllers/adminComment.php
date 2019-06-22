@@ -4,34 +4,35 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Comment;
+use App\commentEnglish;
+use App\commentMongolia;
 use App\commentHeader;
 class adminComment extends Controller
 {
     public function index(){
         return view('admin/comment');
     }
-    public function get(){
-        $comment = Comment::all();
+    public function getEnglish(){
+        $comment = commentEnglish::all();
         return response()->json($comment);
     }
-    public function view($id){
-        $comment = Comment::findOrFail($id);
+    public function viewEnglish($id){
+        $comment = commentEnglish::findOrFail($id);
         return response()->json($comment);
     }
-    public function save(Request $request){
-        $comment = new Comment;
+    public function saveEnglish(Request $request){
+        $comment = new commentEnglish;
         $comment->name = $request->name;
         $comment->comment=$request->comment;
         $comment->save();
         return 'true';
     }
-    public function delete($id){
-        Comment::findOrFail($id)->delete();
+    public function deleteEnglish($id){
+        commentEnglish::findOrFail($id)->delete();
         return 'ok';
     }
-    public function update(Request $request){
-        $comment = Comment::find($request->id);
+    public function updateEnglish(Request $request){
+        $comment = commentEnglish::find($request->id);
         $comment->name = $request->name;
         $comment->comment=$request->comment;
         $comment->save();

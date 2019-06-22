@@ -29,6 +29,28 @@
     <link href="{{asset('assets/css/paper-dashboard.css?v=2.0.0')}}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('assets/demo/demo.css')}}" rel="stylesheet" />
+    @if (Request::is('admin/service'))
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/froala_editor.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/froala_style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/code_view.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/draggable.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/colors.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/emoticons.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/image_manager.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/image.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/line_breaker.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/table.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/char_counter.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/video.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/fullscreen.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/file.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/quick_insert.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/help.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/third_party/spell_checker.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/plugins/special_characters.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+    @endif
   </head>
 
   <body class="">
@@ -175,5 +197,63 @@
 <script src="{{Request::is('admin/home') ? asset('assets/js/home_header.js'): ''}}"></script>
 <script src="{{Request::is('admin/user') ? asset('assets/js/users.js'): ''}}"></script>
 <script src="{{Request::is('admin/profile') ? asset('assets/js/profile.js'): ''}}"></script>
+@if (Request::is('admin/service'))
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/froala_editor.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/align.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/char_counter.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/code_beautifier.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/code_view.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/colors.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/draggable.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/emoticons.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/entities.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/file.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/font_size.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/font_family.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/fullscreen.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/image.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/image_manager.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/line_breaker.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/inline_style.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/link.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/lists.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/paragraph_format.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/paragraph_style.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/quick_insert.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/quote.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/table.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/save.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/url.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/video.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/help.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/print.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/third_party/spell_checker.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/special_characters.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/editor/plugins/word_paste.min.js')}}"></script>
+<script>
+  var token = $('meta[name="csrf-token"]').attr("content");
+  var editor = new FroalaEditor('textarea#editor,textarea#editor_mn', {
+              videoUploadParam: 'file',
+              videoUploadURL: '/upload_video',
+              videoUploadParams: {
+                _token:token
+                },
+              videoUploadMethod: 'POST',
+              // Set max video size to 50MB.
+              videoMaxSize: 50 * 1024 * 1024,
+              videoAllowedTypes: ['mp4', 'ogg'],
+
+              // Image upload
+              imageUploadURL: '/upload_image',
+              imageUploadParams: {
+                 _token: token // This passes the laravel token with the ajax request.
+                 },
+              saveMethod: 'POST',
+            });
+</script>
+<script src="{{asset('assets/js/service.js')}}"></script>
+@endif
 </body>
 </html>

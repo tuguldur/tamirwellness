@@ -30,6 +30,34 @@
             </div>
           </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                 <div class="comment-header">
+                    <h4 class="card-title">Сэтгэгдлүүд</h4>
+                    <div class="spacer"></div>
+                    <a href="#" id="add_comment-mn">Сэтгэгдэл нэмэх</a>
+                 </div>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover comment-table">
+                      <thead class="text-primary">
+                        <th>
+                          Нэр
+                        </th>
+                        <th>
+                          Сэтгэгдэл 
+                        </th>
+                      </thead>
+                      <tbody id="comment-table-mn"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         <div class="col-md-12">
           <div class="card card-plain">
             <div class="card-header">

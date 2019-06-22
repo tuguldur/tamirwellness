@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-@section('title','Tamirwellness | Comment')
+@section('title','Comment')
     <!--slider-->
     <div class="container" style="padding-bottom:1%">
       <!--carousel slider-->

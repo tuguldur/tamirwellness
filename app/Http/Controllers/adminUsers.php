@@ -64,6 +64,9 @@ class adminUsers extends Controller
         if($request['edit_users']){
             $user->roles()->attach(Role::where('name','admin')->first());
         }
+        if($request['edit_blank']){
+            $user->roles()->attach(Role::where('name','blank')->first());
+        }
         return back();
         //$user->roles()->attach($role_admin);
    }

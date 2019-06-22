@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Comment extends Migration
+class CreateServiceMongoliasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class Comment extends Migration
      */
     public function up()
     {
-        Schema::create('comment_english', function (Blueprint $table) {
+        Schema::create('service_mongolia', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('comment');
+            $table->string('title');
+            $table->string('desc');
+            $table->string('src');
+            $table->longText('data');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class Comment extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comment_english');
+        Schema::dropIfExists('service_mongolia');
     }
 }

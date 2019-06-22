@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 */
 // client routes
 Route::get('/',  'Client\index@index');
+Route::get('/service','Client\service@index');
+Route::get('/service/{id}','Client\service@find');
 Route::get('/comment', function () {
     return view('client/comment');
 });
@@ -43,21 +45,21 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/admin/book/update', 'adminBook@update');
 
 // Comment Header Routes
-Route::get('/admin/comment/header', [
-    'uses' => 'adminComment@header',
-    'middleware' => 'roles',
-    'roles' => ['comment','admin']
-]);
+Route::get('/admin/comment/header','adminComment@header');
 Route::get('/admin/comment/header/{id}', 'adminComment@headerFind');
 Route::get('/admin/comment/header/delete/{id}','adminComment@deleteHeader');
 Route::post('/admin/comment/header', 'adminComment@updateheader');
 // Comment Routes
-Route::get('/admin/comment','adminComment@index');
-Route::get('/admin/comment/delete/{id}','adminComment@delete');
-Route::get('/admin/comment/get', 'adminComment@get');
-Route::get('/admin/comment/{id}', 'adminComment@view');
-Route::post('/admin/comment','adminComment@save');
-Route::post('/admin/comment/update','adminComment@update');
+Route::get('/admin/comment',[
+    'uses' => 'adminComment@index',
+    'middleware' => 'roles',
+    'roles' => ['comment','admin']
+]);
+Route::get('/admin/comment/english/delete/{id}','adminComment@deleteEnglish');
+Route::get('/admin/comment/english/get', 'adminComment@getEnglish');
+Route::get('/admin/comment/english/{id}', 'adminComment@viewEnglish');
+Route::post('/admin/comment/english','adminComment@saveEnglish');
+Route::post('/admin/comment/english/update','adminComment@updateEnglish');
 // Contact Routes
 Route::get('/admin/contact',[
     'uses' => 'adminContact@index',
@@ -97,12 +99,28 @@ Route::get('/admin/service',[
     'middleware' => 'roles',
     'roles' => ['service', 'admin']
 ]);
-Route::get('/admin/service/create','adminService@create');
+// GET ALL DATA
+Route::get('/admin/service/english/get','adminService@getEnglish');
+Route::get('/admin/service/mongolia/get','adminService@getMongolia');
+// SAVE 
+Route::post('/admin/service/english','adminService@saveEnglish');
+Route::post('/admin/service/mongolia','adminService@saveMongolia');
+// DELETE BY ID
+Route::get('/admin/service/english/delete/{id}','adminService@deleteEnglish');
+Route::get('/admin/service/mongolia/delete/{id}','adminService@deleteMongolia');
+// FIND BY ID
+Route::get('/admin/service/english/{id}','adminService@findEnglish');
+Route::get('/admin/service/mongolia/{id}','adminService@findMongolian');
+
 // Profile Routes
 Route::get('/admin/profile','adminProfile@index');
 Route::post('/admin/profile','adminProfile@update');
 // Blank Routes
-Route::get('/admin/blank','adminBlank@index');
+Route::get('/admin/blank',[
+    'uses'=>'adminBlank@index',
+    'middleware'=>'roles',
+    'roles'=>['blank','admin']
+]);
 Route::get('/admin/blank/get','adminBlank@get');
 Route::post('/admin/blank','adminBlank@save');
 // Upload Route

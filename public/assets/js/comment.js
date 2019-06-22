@@ -1,6 +1,6 @@
 $(function() {
     function getComment() {
-        $.get("/admin/comment/get", function(data) {
+        $.get("/admin/comment/english/get", function(data) {
             console.log(data);
             $("#comment-table").html("");
             data.forEach(function(item) {
@@ -13,6 +13,7 @@ $(function() {
             });
         });
     }
+    function getMongolianComment() {}
     getComment();
     console.log("Comment being loaded");
     $("#comment-table").on("click", ".comment-data", function() {
@@ -26,7 +27,7 @@ $(function() {
         $(".comment-edit a").attr("data-key", id);
         $(".comment-delete").show();
         $("#comment-modal").modal("show");
-        $.get("/admin/comment/" + id, function(data) {
+        $.get("/admin/comment/english/" + id, function(data) {
             $(".comment-title").html(data.name);
             $("#comment-text").html(data.comment);
         });
@@ -47,7 +48,7 @@ $(function() {
         var name = $("#comment-name").val();
         var comment = $("#comment-value").val();
         var token = $('meta[name="csrf-token"]').attr("content");
-        $.post("/admin/comment", {
+        $.post("/admin/comment/english/", {
             name: name,
             comment: comment,
             _token: token
@@ -59,7 +60,7 @@ $(function() {
     });
     $(".comment-delete a").click(function() {
         var id = $(this).attr("data-key");
-        $.get("/admin/comment/delete/" + id, function(data) {
+        $.get("/admin/comment/english/delete/" + id, function(data) {
             console.log(data);
             $("#comment-modal").modal("hide");
             getComment();
@@ -84,7 +85,7 @@ $(function() {
         var name = $("#comment-name").val();
         var comment = $("#comment-value").val();
         var token = $('meta[name="csrf-token"]').attr("content");
-        $.post("/admin/comment/update", {
+        $.post("/admin/comment/english/update", {
             id: id,
             name: name,
             comment: comment,

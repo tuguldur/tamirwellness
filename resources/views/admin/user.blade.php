@@ -37,6 +37,7 @@
                              <span class="badge badge-secondary">{{$user->hasRole('contact') ? 'Contact' : ''}}</span>
                              <span class="badge badge-secondary">{{$user->hasRole('inbox') ? 'Inbox' : ''}}</span>
                              <span class="badge badge-secondary">{{$user->hasRole('service') ? 'Service' : ''}}</span>
+                             <span class="badge badge-secondary">{{$user->hasRole('blank') ? 'Blank' : ''}}</span>
                             </td>
                            <td>{{$user->created_at->diffForHumans()}}</td>
                           </tr>
@@ -99,6 +100,10 @@
                 <input class="form-check-input roles" type="checkbox" id="edit_service" name="edit_service">
                 <label class="form-check-label" for="edit_service">Edit Service</label>
               </div>
+              <div class="form-check form-check-inline">
+                  <input class="form-check-input roles" type="checkbox" id="edit_blank" name="edit_blank">
+                  <label class="form-check-label" for="edit_blank">Edit Blank</label>
+                </div>
               @csrf
               <input type="hidden" value="0" name="id" id="user_id"/>
               <div class="d-flex mt-3">

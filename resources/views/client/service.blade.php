@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-@section('title','Tamirwellness | Service')
+@section('title','Service')
     <!--Service main title-->
     <div class="container" style="padding-top:2%">
         <div class="col-md-12 bg-white">

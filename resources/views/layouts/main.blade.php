@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>@yield('title')</title>
+    <title>Tamirwellness | @yield('title')</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="css/owl.carousel.css" />
-    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css" />
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/owl.theme.default.css')}}" />
     <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.8.1.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
-    <link rel="stylesheet" href="css/compact-gallery.css">
+    <link rel="stylesheet" href="{{asset('css/compact-gallery.css')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="css/navbar-top-fixed.css" rel="stylesheet">
+    <link href="{{asset('css/navbar-top-fixed.css')}}" rel="stylesheet">
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="js/jquery.min.js" type="text/javascript"></script>
-    <script src="js/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="{{asset('js/jquery.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('js/owl.carousel.min.js')}}" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}" type="text/javascript"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
   </head>
   <!-----------------------------Booooody---------------------------------->
@@ -33,7 +33,7 @@
       <div class="container">
           <div class="d-flex w-50 order-0">
               <a class="navbar-brand mr-1" href="#"
-                ><img id="logo" src="image/tamir-logo.png"/>
+                ><img id="logo" src="{{asset('image/tamir-logo.png')}}"/>
                 <span>Tamir<br> wellness</span>
               </a>
             </div>
@@ -79,26 +79,26 @@
           
           <!-- Modal body -->
           <div class="modal-body">
-            <form style="width:100%; display:flex" action="/book" method="POST">
+          <form style="width:100%; display:flex" action="{{url('/book') }}" method="POST">
               @csrf
             <div class="col-md-6">
               <div class="col-md-12"><p class="formcss font" style="font-size:12px">Send us your booking request</p></div>
-              <div class="col-md-12" id="formcss"><input type="text" class="form-control" id="name form" placeholder="name" name="name" required></div>
-              <div class="col-md-12" id="formcss"><input type="email" class="form-control" id="email form" placeholder="email" name="email" required></div>
-              <div class="col-md-12" id="formcss"><input type="phone" class="form-control" id="number form" placeholder="phone number" name="phone_number" required></div>
-              <div class="col-md-12" id="formcss"><textarea type="text" class="form-control" id="messagse form" placeholder="message" name="message" style="height: 110px" required></textarea></div>
+              <div class="col-md-12" id="formcss"><input type="text" class="form-control" id="name form" placeholder="name" name="name" required autocomplete="off"></div>
+              <div class="col-md-12" id="formcss"><input type="email" class="form-control" id="email form" placeholder="email" name="email" required autocomplete="off"></div>
+              <div class="col-md-12" id="formcss"><input type="phone" class="form-control" id="number form" placeholder="phone number" name="phone_number" required autocomplete="off"></div>
+              <div class="col-md-12" id="formcss"><textarea type="text" class="form-control" id="messagse form" placeholder="message" name="message" style="height: 110px" required autocomplete="off"></textarea></div>
             </div>
             <div class="col-md-6">
               <div class="col-md-12">
                 <p class="font" style="font-size:14px">When will you come?</p>
-                <input id="datepicker" width="100%" name="start_date" required />
+                <input id="datepicker" width="100%" name="start_date" required autocomplete="off" />
                 <script>
                     $('#datepicker').datepicker({format:'yyyy/mm/dd'});
                 </script>
               </div>
               <div class="col-md-12" style="padding-top: 5%">
                   <p class="font" style="font-size:14px">When will you leave?</p>
-                  <input id="datepicker2" width="100%" name="end_date" required />
+                  <input id="datepicker2" width="100%" name="end_date" required autocomplete="off" />
                   <script>
                       $('#datepicker2').datepicker({format:'yyyy/mm/dd'});
                   </script>

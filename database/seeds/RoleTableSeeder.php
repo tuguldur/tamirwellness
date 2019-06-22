@@ -37,6 +37,11 @@ class RoleTableSeeder extends Seeder
         $service->description = 'Edit & remove Services';
         $service->save();
 
+        $service = new Role();
+        $service->name = 'blank';
+        $service->description = 'Edit & remove Blank';
+        $service->save();
+
         $admin = new Role();
         $admin->name = 'admin';
         $admin->description = 'Can do anything';

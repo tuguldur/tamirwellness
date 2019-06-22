@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-@section('title','Tamirwellness | Home')
+@section('title','Home')
     <div class="container top-container" style="padding-bottom:1%;">
     <div id="wrapper" class="bg-grey">
       </div>
@@ -21,87 +21,17 @@
        <section class="gallery-block compact-gallery">
           <div class="container">
               <div class="row no-gutters">
-                  <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                      <a class="font lightbox" href="service1.html" data-caption="Hello this is description of image 1">
-                          <img class="img-fluid image" src="image/image1.jpg">
-                          <span class="description">
-                              <span class="description-heading">Lorem Ipsum</span>
-                              <span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                          </span>
-                      </a>
-                  </div>
-                  <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                      <a class="font lightbox" href="service2.html" data-caption="Hello this is description of image 2">
-                          <img class="img-fluid image" src="image/image2.jpg">
-                          <span class="description">
-                              <span class="description-heading">Lorem Ipsum</span>
-                              <span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                          </span>
-                      </a>
-                  </div>
-                  <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                      <a class="font lightbox" href="service3.html" data-caption="Hello this is description of image 3">
-                          <img class="img-fluid image" src="image/image3.jpg">
-                          <span class="description">
-                              <span class="description-heading">Lorem Ipsum</span>
-                              <span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                          </span>
-                      </a>
-                  </div>
-                  <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                      <a class="font lightbox" href="service4.html" data-caption="Hello this is description of image 4">
-                          <img class="img-fluid image" src="image/image4.jpg">
-                          <span class="description">
-                              <span class="description-heading">Lorem Ipsum</span>
-                              <span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                          </span>
-                          </a>
-                      </div>
-                  <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                      <a class="font lightbox" href="service5.html" data-caption="Hello this is description of image 5">
-                          <img class="img-fluid image" src="image/image5.jpg">
-                          <span class="description">
-                              <span class="description-heading">Lorem Ipsum</span>
-                              <span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                          </span>
-                      </a>
-                  </div>
-                  <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                      <a class="font lightbox" href="service6.html" data-caption="Hello this is description of image 6">
-                          <img class="img-fluid image" src="image/image6.jpg">
-                          <span class="description">
-                              <span class="description-heading">Lorem Ipsum</span>
-                              <span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                          </span>
-                      </a>
-                  </div>
-                  <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                      <a class="font lightbox" href="service7.html" data-caption="Hello this is description of image 7">
-                          <img class="img-fluid image" src="image/image7.jpg">
-                          <span class="description">
-                              <span class="description-heading">Lorem Ipsum</span>
-                              <span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                          </span>
-                      </a>
-                  </div>
-                  <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                      <a class="font lightbox" href="service8.html" data-caption="Hello this is description of image 8">
-                          <img class="img-fluid image" src="image/image8.jpg">
-                          <span class="description">
-                              <span class="description-heading">Lorem Ipsum</span>
-                              <span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                          </span>
-                      </a>
-                  </div>
-                  <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                      <a class="font lightbox" href="service9.html" data-caption="Hello this is description of image 9">
-                          <img class="img-fluid image" src="image/image9.jpg">
-                          <span class="description">
-                              <span class="description-heading">Lorem Ipsum</span>
-                              <span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                          </span>
-                      </a>
-                  </div>
+             @foreach ($serviceEng as $item)
+             <div class="col-md-6 col-lg-4 item zoom-on-hover">
+                <a class="font lightbox" href="/service/{{$item->id}}" data-caption="Hello this is description of image 1">
+                    <img class="img-fluid image" src="{{$item->src}}">
+                    <span class="description">
+                    <span class="description-heading">{{$item->title}}</span>
+                        <span class="description-body">{{$item->desc}}</span>
+                    </span>
+                </a>
+            </div>
+             @endforeach
               </div>
           </div>
       </section>
