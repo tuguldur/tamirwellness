@@ -8,7 +8,8 @@ use App\ServiceEnglish;
 class service extends Controller
 {
     public function index(){
-        return view ('client/service');
+        $service = ServiceEnglish::all();
+        return view ('client/service',['service'=>$service]);
     }
     public function find($id){
         $service = ServiceEnglish::findOrFail($id);

@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Client;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-class contact extends Controller
+class blank extends Controller
 {
     public function index(){
-        $contact = \App\Contact::find(1);
-        return view('client/contact', ['contact'=>$contact]);
+       $blank = \App\Blank::find(1);
+       return view('client/blank',['blank' => $blank]);
     }
 }

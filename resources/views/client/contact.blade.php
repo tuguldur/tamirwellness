@@ -14,15 +14,15 @@
                       <h3 class="font" style="text-align:center; padding-top: 2%; padding-bottom:1%">Address</h3>
                   <div class="col-md-12" style="display: flex">
                       <i class="material-icons" style="font-size:25px;color:rgba(33, 190, 33, 0.685)">phone</i>
-                      <p class="font">+976 9911 2044</p>
+                      <p class="font">{{$contact->phone_number}}</p>
                   </div>
                   <div class="col-md-12" style="display: flex">
                       <i class="material-icons" style="font-size:25px;color:rgba(33, 190, 33, 0.685)">location_on</i>
-                      <p class="font">Tamir Camp Road, Terelj, Nalaikha, 12770, Mongolia</p>
+                      <p class="font">{{$contact->location}}</p>
                   </div>
                   <div class="col-md-12" style="display: flex">
                       <i class="material-icons" style="font-size:25px;color:rgba(33, 190, 33, 0.685)">mail</i>
-                      <p class="font"> info@tamirwellness.com</p>
+                      <p class="font">{{$contact->email}}</p>
                   </div>
                 </div>
                 <div class="col-md-6">

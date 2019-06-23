@@ -14,18 +14,10 @@ use Illuminate\Http\Request;
 Route::get('/',  'Client\index@index');
 Route::get('/service','Client\service@index');
 Route::get('/service/{id}','Client\service@find');
-Route::get('/comment', function () {
-    return view('client/comment');
-});
-Route::get('/contact', function () {
-    return view('client/contact');
-});
-Route::get('/service', function () {
-    return view('client/service');
-});
-Route::get('/blank', function () {
-    return view('client/blank');
-});
+Route::get('/comment', 'Client\comment@index');
+Route::get('/contact', 'Client\contact@index');
+Route::get('/service', 'Client\service@index');
+Route::get('/blank', 'Client\blank@index');
 // Client send booking req
 Route::post('/book', 'adminBook@save');
 // Admin routes
