@@ -60,6 +60,13 @@ Route::get('/admin/comment/english/get', 'adminComment@getEnglish');
 Route::get('/admin/comment/english/{id}', 'adminComment@viewEnglish');
 Route::post('/admin/comment/english','adminComment@saveEnglish');
 Route::post('/admin/comment/english/update','adminComment@updateEnglish');
+
+Route::get('/admin/comment/mongolia/delete/{id}','adminComment@deleteMongolia');
+Route::get('/admin/comment/mongolia/get', 'adminComment@getMongolia');
+Route::get('/admin/comment/mongolia/{id}', 'adminComment@viewMongolia');
+Route::post('/admin/comment/mongolia','adminComment@saveMongolia');
+Route::post('/admin/comment/mongolia/update','adminComment@updateMongolia');
+
 // Contact Routes
 Route::get('/admin/contact',[
     'uses' => 'adminContact@index',

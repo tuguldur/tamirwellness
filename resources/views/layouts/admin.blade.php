@@ -192,6 +192,7 @@
 <script src="{{asset('assets/js/paper-dashboard.min.js?v=2.0.0')}}" type="text/javascript"></script>
 <script src="{{Request::is('admin/book') ? asset('assets/js/book.js'): ''}}"></script>
 <script src="{{Request::is('admin/comment') ? asset('assets/js/comment.js'): ''}}"></script>
+<script src="{{Request::is('admin/comment') ? asset('assets/js/comment_mn.js'): ''}}"></script>
 <script src="{{Request::is('admin/comment') ? asset('assets/js/comment_header.js'): ''}}"></script>
 <script src="{{Request::is('admin/contact') ? asset('assets/js/contact.js'): ''}}"></script>
 <script src="{{Request::is('admin/home') ? asset('assets/js/home_header.js'): ''}}"></script>

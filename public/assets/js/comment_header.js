@@ -25,13 +25,10 @@ $(function() {
         );
         $.get("/admin/comment/header/" + id, function(e) {
             $("#comment-header-title").val(e.name);
-            var hostname = $(location).attr("host");
+
             var image = e.src;
-            var d = image.substr(6);
-            $("#comment-header-view a").attr(
-                "href",
-                `http://${hostname}/storage/${d}`
-            );
+
+            $("#comment-header-view a").attr("href", `${image}`);
             console.log(e);
         });
     });

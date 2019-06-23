@@ -1,20 +1,4 @@
 $(function() {
-    function getUsers() {
-        $.get("/admin/user/get", function(e) {
-            console.log(e);
-            $("#users").html("");
-            e.forEach(function(item) {
-                $("#users").append(
-                    `<tr data-key=${item.id} class="user-data">
-                    <td>${item.name}</td>
-                    <td>commenter, inbox</td>
-                    <td>${item.created_at.slice(0, -9)}</td>
-                    </tr>`
-                );
-            });
-        });
-    }
-    //getUsers();
     $("#add_user").click(function() {
         $("#users").modal("show");
         $("#delete-user").hide();
@@ -57,6 +41,7 @@ $(function() {
             $("#delete-user").hide();
         }
         $("#user_id").val(id);
+        $("#users").modal("show");
         $.get("/admin/user/" + id, function(data) {
             $("#username").val(data.user.name);
             $("#email").val(data.user.email);
@@ -75,8 +60,9 @@ $(function() {
                     $("#edit_service").prop("checked", true);
                 }
             });
+            $("#user-loader").addClass("d-none");
+            $("#user-main").removeClass("d-none");
         });
-        $("#users").modal("show");
     });
     $("#users").on("hidden.bs.modal", function() {
         $(
@@ -84,6 +70,8 @@ $(function() {
         ).prop("checked", false);
         $("#username,#email,#password,#password_next").val("");
         $("#user_id").val("0");
+        $("#user-loader").removeClass("d-none");
+        $("#user-main").addClass("d-none");
     });
     $("#user_").submit(function(e) {
         var e = $("#password").val();

@@ -37,7 +37,7 @@
                  <div class="comment-header">
                     <h4 class="card-title">Сэтгэгдлүүд</h4>
                     <div class="spacer"></div>
-                    <a href="#" id="add_comment-mn">Сэтгэгдэл нэмэх</a>
+                    <a href="#" id="add_comment_mn">Сэтгэгдэл нэмэх</a>
                  </div>
                 </div>
                 <div class="card-body">
@@ -85,7 +85,7 @@
           </div>
         </div>
       </div>
-      {{-- MODAL COMMENT --}}
+      {{-- MODAL COMMENT ENGLISH --}}
       <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true" id="comment-modal">
           <div class="modal-dialog  modal-dialog-centered">
             <div class="modal-content">
@@ -116,6 +116,37 @@
           </div>
           </div>
         </div>
+        {{-- MODAL COMMENT MONGOLIA --}}
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true" id="comment-modal-mn">
+          <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+            <h2 class="comment-title-mn"></h2>
+            <div class="comment-body">
+              <span id="comment-text-mn"></span>
+              <div class="comment-form-mn">
+                <input type="text" class="form-control" placeholder="Name" id="comment-name-mn">
+                <textarea class="form-control mt-3 dev-textarea" placeholder="Comment" rows="5" id="comment-value-mn"></textarea>
+              </div>
+              <div id="inbox-toolbar">
+                <div class="spacer"></div>
+                       <div class="toolbar comment-save-mn">
+                        <a href="#" class="text-info">Хадгалах</a>
+                       </div>
+                       <div class="toolbar comment-edit-mn">
+                        <a href="#" class="text-info">Засах</a>
+                       </div>
+                       <div class="toolbar comment-delete-mn">
+                        <a href="#" class="text-danger">Устгах</a>
+                       </div>
+                       <div class="toolbar comment-edited-mn d-none">
+                        <a href="#" class="text-info">Хадгалах</a>
+                       </div>
+                <div class="spacer"></div>
+                </div>
+          </div>
+          </div>
+          </div>
+        </div>
         {{-- MODAL COMMENT HEADER --}}
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true" id="comment-header-modal">
           <div class="modal-dialog  modal-dialog-centered">
@@ -125,7 +156,7 @@
                       <input type="text" class="form-control" id="comment-header-title" placeholder="Header Picture Name">
                     </div>
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="headerFile" accept="image/*">
+                <input type="file" class="custom-file-input" id="headerFile" accept="image/jpeg, image/png">
                 <label class="custom-file-label" for="headerFile">Choose file...</label>
               
               </div>   </form>

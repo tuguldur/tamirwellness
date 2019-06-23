@@ -38,6 +38,33 @@ class adminComment extends Controller
         $comment->save();
         return 'ok';
     }
+    // MONGOLIA
+    public function getMongolia(){
+        $comment = commentMongolia::all();
+        return response()->json($comment);
+    }
+    public function viewMongolia($id){
+        $comment = commentMongolia::findOrFail($id);
+        return response()->json($comment);
+    }
+    public function saveMongolia(Request $request){
+        $comment = new commentMongolia;
+        $comment->name = $request->name;
+        $comment->comment=$request->comment;
+        $comment->save();
+        return 'true';
+    }
+    public function deleteMongolia($id){
+        commentMongolia::findOrFail($id)->delete();
+        return 'ok';
+    }
+    public function updateMongolia(Request $request){
+        $comment = commentMongolia::find($request->id);
+        $comment->name = $request->name;
+        $comment->comment=$request->comment;
+        $comment->save();
+        return 'ok';
+    }
     public function header(){
        $comment = commentHeader::all();
        return response()->json($comment);
@@ -58,7 +85,11 @@ class adminComment extends Controller
         } 
         else if($id!=='0' && $request->hasFile('file')){
             $comment_header = commentHeader::findOrFail($id);
-            $path = $request->file('file')->store('public/image');
+         
+            $imageName = time().'.'.request()->file->getClientOriginalExtension();
+            request()->file->move(public_path('image/comment'), $imageName);
+            $path = "/image/comment/".$imageName;
+
             $comment_header->name= $request->name;
             $comment_header->src = $path;
             $comment_header->save();
@@ -66,7 +97,10 @@ class adminComment extends Controller
         }
         else{
             $comment_header = new commentHeader;
-            $path = $request->file('file')->store('public/image');
+            $imageName = time().'.'.request()->file->getClientOriginalExtension();
+            request()->file->move(public_path('image/comment'), $imageName);
+            $path = "/image/comment/".$imageName;
+
             $comment_header->name= $request->name;
             $comment_header->src = $path;
             $comment_header->save();

@@ -15,6 +15,8 @@ class CreateCommentMongoliasTable extends Migration
     {
         Schema::create('comment_mongolia', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('comment');
             $table->timestamps();
         });
     }

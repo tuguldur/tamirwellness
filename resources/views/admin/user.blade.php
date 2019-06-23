@@ -53,6 +53,8 @@
       <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="users">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
+              <div class="loader text-center" id="user-loader">Loading...</div>
+              <div class="d-none" id="user-main">
             <form action="/admin/user/add" method="POST" id="user_">
               <div class="form-group">
                 <label for="username">Username</label>
@@ -113,6 +115,7 @@
             </div>
             </form>
          </div>
+        </div>
        </div>
       </div>
 @endsection

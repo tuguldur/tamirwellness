@@ -35,7 +35,7 @@
                                     <textarea class="form-control" id="image_description" rows="3" placeholder="Image Description" required name="service_desc"></textarea>
                                   </div>
                                   <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="service-file" name="file">
+                                    <input type="file" class="custom-file-input" id="service-file" name="file" accept="image/jpeg, image/png">
                                     <label class="custom-file-label" for="service-file" style="font-size:14px">Choose file</label>
                                   </div>
                                       @csrf

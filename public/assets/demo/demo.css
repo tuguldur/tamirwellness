@@ -326,13 +326,15 @@ td {
 .comment {
     max-width: 210px;
 }
-.comment-title {
+.comment-title,
+.comment-title-mn {
     padding: 20px 24px 9px;
     font-size: 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     margin-bottom: 0;
 }
-.comment-body {
+.comment-body,
+.comment-body-mn {
     padding: 20px;
 }
 .comment-header {
@@ -373,4 +375,8 @@ td {
     z-index: 3;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 12px;
+}
+.category,
+.card-category {
+    text-transform: none;
 }
