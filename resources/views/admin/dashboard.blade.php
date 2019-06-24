@@ -130,7 +130,7 @@
                   <div class="card-footer ">
                     <hr />
                     <div class="stats">
-                      <a href="/admin/contact"><i class="fa fa-refresh"></i> Update now</a>
+                      <a href="/admin/blank"><i class="fa fa-refresh"></i> Update now</a>
                     </div>
                   </div>
                 </div>
@@ -156,7 +156,7 @@
                   <div class="card-footer ">
                     <hr />
                     <div class="stats">
-                      <a href="/admin/contact">Open Service</a>
+                      <a href="/admin/service">Open Service</a>
                     </div>
                   </div>
                 </div>

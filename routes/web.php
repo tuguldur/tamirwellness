@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// client routes
+// ENGLISH client routes 
 Route::get('/',  'Client\index@index');
 Route::get('/service','Client\service@index');
 Route::get('/service/{id}','Client\service@find');
@@ -18,6 +18,16 @@ Route::get('/comment', 'Client\comment@index');
 Route::get('/contact', 'Client\contact@index');
 Route::get('/service', 'Client\service@index');
 Route::get('/blank', 'Client\blank@index');
+
+Route::get('/mn',  'Client\index@mongolia');
+Route::get('/mn/service','Client\service@mongolia');
+Route::get('/mn/service/{id}','Client\service@findMongolia');
+Route::get('/mn/comment', 'Client\comment@mongolia');
+Route::get('/mn/contact', 'Client\contact@mongolia');
+Route::get('/mn/service', 'Client\service@mongolia');
+Route::get('/mn/blank', 'Client\blank@index');
+
+
 // Client send booking req
 Route::post('/book', 'adminBook@save');
 // Admin routes

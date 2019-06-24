@@ -1,10 +1,10 @@
-@extends('layouts.main')
+@extends('layouts.main-mn')
 @section('content')
-@section('title','Service')
+@section('title','Үйлчилгээ')
     <!--Service main title-->
     <div class="container" style="padding-top:2%">
         <div class="col-md-12 bg-white">
-            <h1 class="font" style="text-align: center; padding-top:2%; color:rgba(84, 85, 85, 0.877); margin:0">services</h1>
+            <h1 class="font" style="text-align: center; padding-top:2%; color:rgba(84, 85, 85, 0.877); margin:0">Үйлчилгээ</h1>
             <div class="text-border-bottom"></div>
             <div class="bg-white" style="padding-bottom:1%"></div>
         </div>

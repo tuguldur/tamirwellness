@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 @section('title','Contact')
-    <div class="container" style="margin-top:2%">
+<div class="container" style="margin-top:2%">
         <div class="wrapper bg-white" style="padding-bottom:10%; padding-top:0%; margin-bottom:2%">
             <div class="row" >
                 <div class="col-md-12" style="text-align: center"><h1 class="font" style="padding-top: 2%">Contact</h1></div>
@@ -14,15 +14,15 @@
                       <h3 class="font" style="text-align:center; padding-top: 2%; padding-bottom:1%">Address</h3>
                   <div class="col-md-12" style="display: flex">
                       <i class="material-icons" style="font-size:25px;color:rgba(33, 190, 33, 0.685)">phone</i>
-                      <p class="font">{{$contact->phone_number}}</p>
+                      <p class="font">+976 9911 2044</p>
                   </div>
                   <div class="col-md-12" style="display: flex">
                       <i class="material-icons" style="font-size:25px;color:rgba(33, 190, 33, 0.685)">location_on</i>
-                      <p class="font">{{$contact->location}}</p>
+                      <p class="font">Tamir Camp Road, Terelj, Nalaikha, 12770, Mongolia</p>
                   </div>
                   <div class="col-md-12" style="display: flex">
                       <i class="material-icons" style="font-size:25px;color:rgba(33, 190, 33, 0.685)">mail</i>
-                      <p class="font">{{$contact->email}}</p>
+                      <p class="font"> info@tamirwellness.com</p>
                   </div>
                 </div>
                 <div class="col-md-6">

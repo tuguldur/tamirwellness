@@ -8,6 +8,6 @@ class blank extends Controller
 {
     public function index(){
        $blank = \App\Blank::find(1);
-       return view('client/blank',['blank' => $blank]);
+       return view('client/english/blank',['blank' => $blank]);
     }
 }

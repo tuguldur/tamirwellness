@@ -8,6 +8,10 @@ class contact extends Controller
 {
     public function index(){
         $contact = \App\Contact::find(1);
-        return view('client/contact', ['contact'=>$contact]);
+        return view('client/english/contact', ['contact'=>$contact]);
+    }
+    public function mongolia(){
+        $contact = \App\Contact::find(1);
+        return view('client/mongolia/contact', ['contact'=>$contact]);
     }
 }

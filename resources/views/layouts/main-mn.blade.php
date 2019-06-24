@@ -48,19 +48,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                  <a class="nav-link" href="/">Home</a>
+                  <a class="nav-link" href="/mn">Нүүр</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/service">Service</a>
+                    <a class="nav-link" href="/mn/service">Үйлчилгээ</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/comment">Comment</a>
+                    <a class="nav-link" href="/mn/comment">Сэтгэгдэл</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="/contact">Contact</a>
+                  <a class="nav-link" href="/mn/contact">Холбоо барих</a>
                 </li>
                 <li>
-                    <button id="book-btn-1" type="button" class="btn" style="background-color:rgba(40, 175, 40, 0.719); color:white" data-toggle="modal" data-target="#myModal">Book</button>
+                    <button id="book-btn-1" type="button" class="btn" style="background-color:rgba(40, 175, 40, 0.719); color:white" data-toggle="modal" data-target="#myModal">Захиалга</button>
                 </li>
           </ul>
         </div>
@@ -73,7 +73,7 @@
         
           <!-- Modal Header -->
           <div class="modal-header">
-            <h4 class="modal-title">Booking</h4>
+            <h4 class="modal-title">Захиалгын хүсэлт илгээх</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           
@@ -82,22 +82,22 @@
           <form style="width:100%; display:flex" action="{{url('/book') }}" method="POST">
               @csrf
             <div class="col-md-6">
-              <div class="col-md-12"><p class="formcss font" style="font-size:12px">Send us your booking request</p></div>
-              <div class="col-md-12" id="formcss"><input type="text" class="form-control" id="name form" placeholder="name" name="name" required autocomplete="off"></div>
-              <div class="col-md-12" id="formcss"><input type="email" class="form-control" id="email form" placeholder="email" name="email" required autocomplete="off"></div>
-              <div class="col-md-12" id="formcss"><input type="phone" class="form-control" id="number form" placeholder="phone number" name="phone_number" required autocomplete="off"></div>
-              <div class="col-md-12" id="formcss"><textarea type="text" class="form-control" id="messagse form" placeholder="message" name="message" style="height: 110px" required autocomplete="off"></textarea></div>
+              <div class="col-md-12"><p class="formcss font" style="font-size:12px">Захиалгын мэдээллээ илгээх</p></div>
+              <div class="col-md-12" id="formcss"><input type="text" class="form-control" id="name form" placeholder="Нэр" name="name" required autocomplete="off"></div>
+              <div class="col-md-12" id="formcss"><input type="email" class="form-control" id="email form" placeholder="Цахим хаяг" name="email" required autocomplete="off"></div>
+              <div class="col-md-12" id="formcss"><input type="phone" class="form-control" id="number form" placeholder="Утасны дугаар" name="phone_number" required autocomplete="off"></div>
+              <div class="col-md-12" id="formcss"><textarea type="text" class="form-control" id="messagse form" placeholder="Хүсэлт" name="message" style="height: 110px" required autocomplete="off"></textarea></div>
             </div>
             <div class="col-md-6">
               <div class="col-md-12">
-                <p class="font" style="font-size:14px">When will you come?</p>
+                <p class="font" style="font-size:14px">Ирэх өдрөө сонгоно уу?</p>
                 <input id="datepicker" width="100%" name="start_date" required autocomplete="off" />
                 <script>
                     $('#datepicker').datepicker({format:'yyyy/mm/dd'});
                 </script>
               </div>
               <div class="col-md-12" style="padding-top: 5%">
-                  <p class="font" style="font-size:14px">When will you leave?</p>
+                  <p class="font" style="font-size:14px">Буцах өдрөө сонгоно уу?</p>
                   <input id="datepicker2" width="100%" name="end_date" required autocomplete="off" />
                   <script>
                       $('#datepicker2').datepicker({format:'yyyy/mm/dd'});
@@ -108,9 +108,9 @@
           
           <!-- Modal footer -->
           <div class="modal-footer">
-            <button type="submit" class="btn" style="background-color:rgba(40, 175, 40, 0.719); color:white;">Send</button>
+            <button type="submit" class="btn" style="background-color:rgba(40, 175, 40, 0.719); color:white;">Илгээх</button>
           </form>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Хаах</button>
           </div>
           
         </div>
@@ -123,9 +123,9 @@
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">
       <div class="footer-text container" style="display:flex">
-      <a class="nav-link waves-effect waves-light px-2" href="/mn" target="_blank" style="padding-top:2%">
+      <a class="nav-link waves-effect waves-light px-2" href="/" target="_blank" style="padding-top:2%">
         <i class="fa fa-language"></i>
-        <p style="line-height:75%">Монгол хэл</p>
+        <p style="line-height:75%">English</p>
       </a>
         <p style="line-height:500%">© 2019 Tamir Wellness. Ulaanbaatar, Mongolia. All rights reserved.</p>
       <a class="nav-link waves-effect waves-light px-2" href="https://www.facebook.com/tamirwellness" target="_blank">
