@@ -380,3 +380,7 @@ td {
 .card-category {
     text-transform: none;
 }
+.toolbar a.disabled {
+    cursor: default;
+    color: #555 !important;
+}

@@ -43,7 +43,10 @@ $(function() {
             homeHeader();
         });
     });
-    $("#home-header-save a").on("click", function() {
+    $("#home-header-modal").on("shown.bs.modal", function() {
+        $("#home-header-save a").removeClass("disabled");
+    });
+    $("#home-header-save a").click(function() {
         var file_data = $("#homeHeaderFile").prop("files")[0];
         var form_data = new FormData();
         var token = $('meta[name="csrf-token"]').attr("content");
@@ -53,18 +56,23 @@ $(function() {
         form_data.append("name", name);
         form_data.append("_token", token);
         form_data.append("id", id);
-        $.ajax({
-            url: "/admin/home/header",
-            dataType: "text",
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: "post",
-            success: function() {
-                $("#home-header-modal").modal("hide");
-                homeHeader();
-            }
-        });
+        if ($(this).hasClass("disabled")) {
+            alert("STOP IT");
+        } else {
+            $.ajax({
+                url: "/admin/home/header",
+                dataType: "text",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                type: "post",
+                success: function() {
+                    $("#home-header-modal").modal("hide");
+                    homeHeader();
+                }
+            });
+        }
+        $(this).addClass("disabled");
     });
 });

@@ -108,4 +108,7 @@ $(function() {
             $("#service-submit").attr("disabled", false);
         });
     });
+    $("#english form,#mongolia form").submit(function() {
+        $(".card-overlay").show();
+    });
 });

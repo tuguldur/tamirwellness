@@ -48,15 +48,20 @@ $(function() {
         var name = $("#comment-name").val();
         var comment = $("#comment-value").val();
         var token = $('meta[name="csrf-token"]').attr("content");
-        $.post("/admin/comment/english/", {
-            name: name,
-            comment: comment,
-            _token: token
-        }).done(function() {
-            $("#comment-modal").modal("hide");
-            $("#comment-name,#comment-value").val("");
-            getComment();
-        });
+        if ($(this).hasClass("disabled")) {
+            console.log("SPAMMING");
+        } else {
+            $.post("/admin/comment/english/", {
+                name: name,
+                comment: comment,
+                _token: token
+            }).done(function() {
+                $("#comment-modal").modal("hide");
+                $("#comment-name,#comment-value").val("");
+                getComment();
+            });
+        }
+        $(this).addClass("disabled");
     });
     $(".comment-delete a").click(function() {
         var id = $(this).attr("data-key");
@@ -80,20 +85,28 @@ $(function() {
         $("#comment-value").val(text);
         console.log(title, text);
     });
+    $("#comment-modal").on("shown.bs.modal", function() {
+        $(".comment-edited a,.comment-save a").removeClass("disabled");
+    });
     $(".comment-edited a").click(function() {
         var id = $(this).attr("data-key");
         var name = $("#comment-name").val();
         var comment = $("#comment-value").val();
         var token = $('meta[name="csrf-token"]').attr("content");
-        $.post("/admin/comment/english/update", {
-            id: id,
-            name: name,
-            comment: comment,
-            _token: token
-        }).done(function() {
-            $("#comment-modal").modal("hide");
-            $("#comment-name,#comment-value").val("");
-            getComment();
-        });
+        if ($(this).hasClass("disabled")) {
+            console.log("spamming");
+        } else {
+            $.post("/admin/comment/english/update", {
+                id: id,
+                name: name,
+                comment: comment,
+                _token: token
+            }).done(function() {
+                $("#comment-modal").modal("hide");
+                $("#comment-name,#comment-value").val("");
+                getComment();
+            });
+        }
+        $(this).addClass("disabled");
     });
 });

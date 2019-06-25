@@ -1,7 +1,12 @@
 $(function() {
     $("#add_user").click(function() {
         $("#users").modal("show");
+        $("#user-loader").addClass("d-none");
+        $("#user-main").removeClass("d-none");
         $("#delete-user").hide();
+    });
+    $("#users").on("shown.bs.modal", function() {
+        $("#save-user").prop("disabled", false);
     });
     $("#password_next").keyup(function() {
         var e = $("#password").val();
@@ -78,8 +83,10 @@ $(function() {
         var new_password = e.trim();
         var p = $("#password_next").val();
         var password = p.trim();
+        $("#save-user").prop("disabled", true);
         if ($(".roles:checkbox:checked").length == 0) {
             $("#roles_check").html("Please select at least one Role");
+            $("#save-user").prop("disabled", false);
             return false;
         } else if (
             new_password == password &&
@@ -89,7 +96,6 @@ $(function() {
         } else {
             return false;
         }
-        e.preventDefault();
     });
     $("#delete-user").click(function() {
         var id = $(this).attr("data-key");

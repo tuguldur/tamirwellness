@@ -50,15 +50,20 @@ $(function() {
         var name = $("#comment-name-mn").val();
         var comment = $("#comment-value-mn").val();
         var token = $('meta[name="csrf-token"]').attr("content");
-        $.post("/admin/comment/mongolia/", {
-            name: name,
-            comment: comment,
-            _token: token
-        }).done(function() {
-            $("#comment-modal-mn").modal("hide");
-            $("#comment-name-mn,#comment-value-mn").val("");
-            getComment();
-        });
+        if ($(this).hasClass("disabled")) {
+            console.log("SPAMMING");
+        } else {
+            $.post("/admin/comment/mongolia/", {
+                name: name,
+                comment: comment,
+                _token: token
+            }).done(function() {
+                $("#comment-modal-mn").modal("hide");
+                $("#comment-name-mn,#comment-value-mn").val("");
+                getComment();
+            });
+        }
+        $(this).addClass("disabled");
     });
     $(".comment-delete-mn a").click(function() {
         var id = $(this).attr("data-key");
@@ -82,20 +87,28 @@ $(function() {
         $("#comment-value-mn").val(text);
         console.log(title, text);
     });
+    $("#comment-modal-mn").on("shown.bs.modal", function() {
+        $(".comment-edited-mn a,.comment-save-mn a").removeClass("disabled");
+    });
     $(".comment-edited-mn a").click(function() {
         var id = $(this).attr("data-key");
         var name = $("#comment-name-mn").val();
         var comment = $("#comment-value-mn").val();
         var token = $('meta[name="csrf-token"]').attr("content");
-        $.post("/admin/comment/mongolia/update", {
-            id: id,
-            name: name,
-            comment: comment,
-            _token: token
-        }).done(function() {
-            $("#comment-modal-mn").modal("hide");
-            $("#comment-name-mn,#comment-value-mn").val("");
-            getComment();
-        });
+        if ($(this).hasClass("disabled")) {
+            console.log("SPAMMING");
+        } else {
+            $.post("/admin/comment/mongolia/update", {
+                id: id,
+                name: name,
+                comment: comment,
+                _token: token
+            }).done(function() {
+                $("#comment-modal-mn").modal("hide");
+                $("#comment-name-mn,#comment-value-mn").val("");
+                getComment();
+            });
+        }
+        $(this).addClass("disabled");
     });
 });

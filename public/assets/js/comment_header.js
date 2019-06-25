@@ -38,6 +38,9 @@ $(function() {
         $("#comment-header-view,.comment-header-delete").hide();
         $("#comment-header-modal").modal("show");
     });
+    $("#comment-header-modal").on("shown.bs.modal", function() {
+        $("#comment-header-save a").removeClass("disabled");
+    });
     $("#comment-header-save a").on("click", function() {
         var file_data = $("#headerFile").prop("files")[0];
         var form_data = new FormData();
@@ -48,20 +51,25 @@ $(function() {
         form_data.append("name", name);
         form_data.append("_token", token);
         form_data.append("id", id);
-        $.ajax({
-            url: "/admin/comment/header",
-            dataType: "text",
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: "post",
-            success: function(e) {
-                $("#comment-header-modal").modal("hide");
-                getCommentHeader();
-                console.log(e);
-            }
-        });
+        if ($(this).hasClass("disabled")) {
+            console.log("SPAMMING");
+        } else {
+            $.ajax({
+                url: "/admin/comment/header",
+                dataType: "text",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                type: "post",
+                success: function(e) {
+                    $("#comment-header-modal").modal("hide");
+                    getCommentHeader();
+                    console.log(e);
+                }
+            });
+        }
+        $(this).addClass("disabled");
     });
     $(".comment-header-delete a").click(function() {
         var id = $(this).attr("data-key");
