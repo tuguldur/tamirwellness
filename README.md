@@ -9,7 +9,7 @@ composer install
 # Run Migrations
 php artisan migrate
 
-# Import Articles
+# Import Users...
 php artisan db:seed
 
 # If you get an error about an encryption key
