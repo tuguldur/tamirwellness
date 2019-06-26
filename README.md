@@ -19,4 +19,4 @@ php artisan key:generate
 ### Author
 
 Khuvituguldur Narantsetseg /
-[Messenger](http://www.m.me/tuguldur.com)
+[Messenger](https://m.me/tuguldur)
