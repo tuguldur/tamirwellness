@@ -16,6 +16,14 @@ php artisan db:seed
 php artisan key:generate
 ```
 
+## Access to Admin panel
+
+```
+Route: /admin
+email: admin@brainstall.com
+password: Password
+```
+
 ### Author
 
 Khuvituguldur Narantsetseg /
