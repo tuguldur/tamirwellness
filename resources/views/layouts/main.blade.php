@@ -32,7 +32,7 @@
     <nav class="navbar navbar-nav dev-nav fixed-top navbar-expand-lg navbar-white bg-white">
       <div class="container">
           <div class="d-flex w-50 order-0">
-              <a class="navbar-brand mr-1" href="#"
+              <a class="navbar-brand mr-1" href="/"
                 ><img id="logo" src="{{asset('image/tamir-logo.png')}}"/>
                 <span>Tamir<br> wellness</span>
               </a>
@@ -161,10 +161,13 @@
         });
         
         $("#customer-area").owlCarousel({
-          loop: true,
+          loop: false,
           responsive: {
-            0: {
-              items: 2
+            0:{
+              items:1
+            },
+            480: {
+              items: 1
             },
             800: {
               items: 2

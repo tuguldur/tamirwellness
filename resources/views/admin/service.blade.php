@@ -75,7 +75,7 @@
                                   </div>
                                
                                   <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="service-file-mn" name="file">
+                                    <input type="file" class="custom-file-input" id="service-file-mn" name="file" accept="image/jpeg, image/png">
                                     <label class="custom-file-label" for="service-file-mn" style="font-size:14px">Choose file</label>
                                   </div>
                                       @csrf

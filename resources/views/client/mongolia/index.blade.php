@@ -23,7 +23,7 @@
               <div class="row no-gutters">
              @foreach ($serviceEng as $item)
              <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                <a class="font lightbox" href="/service/{{$item->id}}">
+                <a class="font lightbox" href="/mn/service/{{$item->id}}">
                     <img class="img-fluid image" src="{{$item->src}}">
                     <span class="description">
                     <span class="description-heading">{{$item->title}}</span>

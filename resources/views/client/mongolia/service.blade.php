@@ -20,7 +20,7 @@
               <div class="col-md-8" >
                     <h2 class="font" style="text-align: center; padding-top:2%; color:rgba(84, 85, 85, 0.877)">{{$item->desc}}</h2>
                     <p class="font">{{$item->desc}}</p>
-                        <a href="/service/{{$item->id}}" class="btn font" style="background-color:rgba(40, 175, 40, 0.719); color:white">Дэлгэрэнгүй</a>
+                        <a href="/mn/service/{{$item->id}}" class="btn font" style="background-color:rgba(40, 175, 40, 0.719); color:white">Дэлгэрэнгүй</a>
                 </div>
                 <div class="col-md-4">
                     <img src="{{asset($item->src)}}" style="width: 100%">
@@ -37,7 +37,7 @@
                 <div class="col-md-8" >
                     <h2 class="font" style="text-align: center; padding-top:2%; color:rgba(84, 85, 85, 0.877)">{{$item->desc}}</h2>
                         <p class="font">{{$item->desc}}</p>
-                        <a href="/service/{{$item->id}}" class="btn font" style="background-color:rgba(40, 175, 40, 0.719); color:white">Дэлгэрэнгүй</a>
+                        <a href="/mn/service/{{$item->id}}" class="btn font" style="background-color:rgba(40, 175, 40, 0.719); color:white">Дэлгэрэнгүй</a>
                 </div>
             </div>
         </div>

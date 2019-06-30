@@ -243,14 +243,22 @@
                 },
               videoUploadMethod: 'POST',
               // Set max video size to 50MB.
-              videoMaxSize: 50 * 1024 * 1024,
+              videoMaxSize: 10240 * 1024 * 1024,
               videoAllowedTypes: ['mp4', 'ogg'],
 
               // Image upload
+              imageUploadParam:'file',
               imageUploadURL: '/upload_image',
               imageUploadParams: {
                  _token: token // This passes the laravel token with the ajax request.
                  },
+              // File Upload
+              fileUploadURL: '/upload_file',
+              fileUploadParams: {
+                  _token: token
+              },
+              fileUploadMethod: 'POST',
+              fileMaxSize: 1024 * 1024 * 1024,
               saveMethod: 'POST',
             });
 </script>

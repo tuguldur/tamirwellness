@@ -30,4 +30,10 @@ class adminBlank extends Controller
         $path = "/video/upload/".$videoName;
         return response()->json(["link" => $path]);
     }
+    public function upload_file(Request $request){
+        $videoName = time().'.'.request()->file->getClientOriginalExtension();
+        request()->file->move(public_path('file/upload'), $videoName);
+        $path = "/file/upload/".$videoName;
+        return response()->json(["link" => $path]);
+    }
 }

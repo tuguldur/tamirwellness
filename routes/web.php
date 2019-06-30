@@ -135,6 +135,7 @@ Route::post('/admin/blank','adminBlank@save');
 // Upload Route
 Route::post('/upload_image','adminBlank@upload_image');
 Route::post('/upload_video','adminBlank@upload_video');
+Route::post('/upload_file','adminBlank@upload_file');
 });//AUTH MIDDLEWARE END
 
 

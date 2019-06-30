@@ -59,30 +59,14 @@
           <div class="text-border-bottom"></div>
         <!--Customer slide-->
           <div id="customer-area" class="owl-carousel owl-theme">
-            <div style="display:flex; width:100%">
-              <img src="image/user.jpg" style="display: block; width:20%; height: 20%">
-              <p style="padding-left:2%">This is area for the customer's comment</p>
-            </div>
-            <div style="display:flex; width:100%">
-              <img src="image/user2.png" style="display: block; width:20%; height: 20%">
-              <p style="padding-left:2%">This is area for the customer's comment</p>
+            <div class="comment-index">
+              <p>This is area for the customer's comment 2</p>
           </div>
-          <div style="display:flex; width:100%">
-              <img src="image/user2.png" style="display: block; width:20%; height: 20%">
-              <p style="padding-left:2%">This is area for the customer's comment</p>
+            <div class="comment-index">
+              <p>This is area for the customer's comment 2</p>
           </div>
-          <div style="display:flex; width:100%">
-              <img src="image/user2.png" style="display: block; width:20%; height: 20%">
-              <p style="padding-left:2%">This is area for the customer's comment</p>
-          </div>
-          <div style="display:flex; width:100%">
-              <img src="image/user2.png" style="display: block; width:20%; height: 20%">
-              <p style="padding-left:2%">This is area for the customer's comment</p>
-          </div>
-          <div style="display:flex; width:100%">
-              <img src="image/user2.png" style="display: block; width:20%; height: 20%">
-              <p style="padding-left:2%">This is area for the customer's comment</p>
-          </div>
+        </div>
+          
      </div>
     </div>
     </div>
