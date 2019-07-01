@@ -16,7 +16,7 @@ class Comment extends Migration
         Schema::create('comment_english', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('comment');
+            $table->longText('comment');
             $table->timestamps();
         });
     }

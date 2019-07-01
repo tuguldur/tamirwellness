@@ -79,16 +79,16 @@
           
           <!-- Modal body -->
           <div class="modal-body">
-          <form style="width:100%; display:flex" action="{{url('/book') }}" method="POST">
+          <form class="book-form" action="{{url('/book') }}" method="POST">
               @csrf
-            <div class="col-md-6">
+            <div class="col-md-12 col-lg-6">
               <div class="col-md-12"><p class="formcss font" style="font-size:12px">Send us your booking request</p></div>
               <div class="col-md-12" id="formcss"><input type="text" class="form-control" id="name form" placeholder="name" name="name" required autocomplete="off"></div>
               <div class="col-md-12" id="formcss"><input type="email" class="form-control" id="email form" placeholder="email" name="email" required autocomplete="off"></div>
               <div class="col-md-12" id="formcss"><input type="phone" class="form-control" id="number form" placeholder="phone number" name="phone_number" required autocomplete="off"></div>
               <div class="col-md-12" id="formcss"><textarea type="text" class="form-control" id="messagse form" placeholder="message" name="message" style="height: 110px" required autocomplete="off"></textarea></div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12 col-lg-6">
               <div class="col-md-12">
                 <p class="font" style="font-size:14px">When will you come?</p>
                 <input id="datepicker" width="100%" name="start_date" required autocomplete="off" />
@@ -166,10 +166,7 @@
             0:{
               items:1
             },
-            480: {
-              items: 1
-            },
-            800: {
+            900: {
               items: 2
             },
           }

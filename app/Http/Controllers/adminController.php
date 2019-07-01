@@ -21,13 +21,18 @@ class adminController extends Controller
  }
        public function index()
     {   
-        $book = count(Book::where('status','new'));
+        $book = Book::where('status','new')->count();
         $home = count(Home_header::all());
-        $comment = count(array(commentEnglish::all(), commentMongolia::all()));
+        $a = commentEnglish::count();
+        $b = commentMongolia::count();
+        $comment = $a+$b;
         $contact = Contact::find(1);
         $blank = Blank::find(1);
-        $service  =count(array(ServiceEnglish::all(),ServiceMongolia::all()));
-        $user = count(User::all());
+       
+        $c = ServiceEnglish::count();
+        $d =ServiceMongolia::count();
+        $service = $c+$d;
+        $user = User::count();
         return view('admin/dashboard',['book' => $book,'home' => $home,'total_comment'=>$comment,'contact' => $contact,'blank'=>$blank,
         'service'=>$service,'user'=>$user]);
     }

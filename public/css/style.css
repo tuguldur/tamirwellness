@@ -31,11 +31,9 @@ body {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
     cursor: pointer;
 }
-.nav-item {
-    padding-top: 3%;
-}
 .nav-link {
     font-size: 14px;
+    padding: 1rem 1rem;
 }
 .top-container-service {
     padding-top: 100px;
@@ -126,8 +124,7 @@ body {
     width: 100%;
 }
 #customer-area {
-    padding-top: 2%;
-    padding-left: 2%;
+    padding: 1%;
     height: 100%;
     width: 100%;
 }
@@ -365,15 +362,38 @@ footer {
 }
 
 .comment-index {
+    padding: 8px;
     display: flex;
     width: 100%;
     text-align: center;
     font-style: italic;
-
+    flex-direction: column;
     font-family: "Open Sans", "Arial", "sans-serif" !important;
     font-size: 17px;
     font-weight: 300;
 }
 .comment-index p {
     width: 100%;
+}
+span.comment-review-name {
+    color: #101a24;
+    font-weight: 700;
+}
+span.comment-review-name::after {
+    content: "";
+    display: block;
+    margin: 9px auto;
+    width: 40px;
+    height: 2px;
+    outline: 0;
+    background: #65c665;
+}
+.book-form {
+    width: 100%;
+    display: block;
+}
+@media (min-width: 992px) {
+    .book-form {
+        display: flex;
+    }
 }

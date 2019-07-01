@@ -59,12 +59,13 @@
           <div class="text-border-bottom"></div>
         <!--Customer slide-->
           <div id="customer-area" class="owl-carousel owl-theme">
-            <div class="comment-index">
-              <p>This is area for the customer's comment 2</p>
+          @foreach ($comment as $item)
+          <div class="comment-index">
+          <span class="comment-review-name">{{$item->name}}</span>
+             <p>{{$item->comment}}</p>
           </div>
-            <div class="comment-index">
-              <p>This is area for the customer's comment 2</p>
-          </div>
+          @endforeach
+           
         </div>
           
      </div>

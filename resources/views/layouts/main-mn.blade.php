@@ -161,12 +161,12 @@
         });
         
         $("#customer-area").owlCarousel({
-          loop: true,
+          loop: false,
           responsive: {
-            0: {
-              items: 2
+            0:{
+              items:1
             },
-            800: {
+            900: {
               items: 2
             },
           }
