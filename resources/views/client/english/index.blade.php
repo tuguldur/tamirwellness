@@ -23,11 +23,11 @@
               <div class="row no-gutters">
              @foreach ($serviceEng as $item)
              <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                <a class="font lightbox" href="/service/{{$item->id}}" data-caption="Hello this is description of image 1">
+                <a class="font lightbox" href="/service/{{$item->id}}">
                     <img class="img-fluid image" src="{{$item->src}}">
                     <span class="description">
                     <span class="description-heading">{{$item->title}}</span>
-                        <span class="description-body">{{$item->desc}}</span>
+                        <span class="description-body">{{str_limit($item->desc,200)}}</span>
                     </span>
                 </a>
             </div>
@@ -35,30 +35,30 @@
               </div>
           </div>
       </section>
-  
-      <script>
-          baguetteBox.run('.compact-gallery', { animation: 'slideIn'});
-      </script>
     </div>
     </div>
        
      <!--Customer's comment-->
      <div class="container" style="padding-bottom:1%; padding-top:1%">
      <div id="Customer" class="bg-white">
-       <div style="width:100%; display:inline-flex">
-         <div style="width:94%">
-          <h3 class="font" style="text-align: center; padding-top:2%; color:rgb(84, 85, 85)">what our customers are say</h3>
-         </div>
-         <div style="width:6%">
-          <a href="https://www.tripadvisor.com/Hotel_Review-g1236128-d2158092-Reviews-Tamir_Wellness_Tourist_Camp-Gorkhi_Terelj_National_Park_Tov_Province.html">
-            <i class="fa fa-tripadvisor" id="tripadvisor" style="color:rgba(40,175,40,.719);"></i>
-          </a>
+       <div class="cus-header">
+          <div class="col ul-col col-xs-12 col-md-2 col-sm-12">
+
           </div>
-      </div>
+         <div class="cus-title col ul-col col-xs-12 col-md-8 col-sm-12 ">
+            <h3 class="font">what our customers are say</h3>
+         </div>
+         <div class="cus-logo col ul-col col-xs-12 col-md-2 col-sm-12 ">
+            <a href="https://www.tripadvisor.com/Hotel_Review-g1236128-d2158092-Reviews-Tamir_Wellness_Tourist_Camp-Gorkhi_Terelj_National_Park_Tov_Province.html">
+              <i class="fa fa-tripadvisor" id="tripadvisor" style="color:rgba(40,175,40,.719);"></i>
+            </a>
+         </div>
+        </div>
+      
        
           <div class="text-border-bottom"></div>
         <!--Customer slide-->
-          <div id="customer-area" class="owl-carousel owl-theme">
+          <div id="customer-area" class="owl-carousel owl-theme pt-3">
           @foreach ($comment as $item)
           <div class="comment-index">
           <span class="comment-review-name">{{$item->name}}</span>
@@ -98,10 +98,10 @@
                 </div>
                 <div class="col-md-6">
                   <div class="col-md-12"><p class="send-us formcss font" style="padding-bottom:2%">Send us your feedback</p></div>
-                  <div class="col-md-12" id="formcss"><input type="text" class="form-control" id="name form" placeholder="name" name="name"></div>
-                  <div class="col-md-12" id="formcss"><input type="email" class="form-control" id="email form" placeholder="email" name="email"></div>
-                  <div class="col-md-12" id="formcss"><input type="phone" class="form-control" id="number form" placeholder="phone number" name="number"></div>
-                  <div class="col-md-12" id="formcss"><textarea type="text" class="form-control" id="messagse form" placeholder="message" name="message" style="height: 110px"></textarea></div>
+                  <div class="col-md-12" id="formcss"><input type="text" class="form-control" id="name form" placeholder="Name" name="name"></div>
+                  <div class="col-md-12" id="formcss"><input type="email" class="form-control" id="email form" placeholder="Email" name="email"></div>
+                  <div class="col-md-12" id="formcss"><input type="phone" class="form-control" id="number form" placeholder="Phone Number" name="number"></div>
+                  <div class="col-md-12" id="formcss"><textarea type="text" class="form-control" id="messagse form" placeholder="Message" name="message" style="height: 110px"></textarea></div>
                   <div class="col-md-12"><button type="button" class="btn" style="background-color:rgba(40, 175, 40, 0.719); color:white;">Send</button></div>
                 </div>
               </div>

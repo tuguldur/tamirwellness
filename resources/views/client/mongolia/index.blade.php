@@ -14,7 +14,6 @@
      <!--service-->
      <div class="container" style="padding-bottom:1%; padding-top:1%">
      <div id="around" class="bg-white">
-       
          <h1 class="font" style="text-align: center; padding-top:2%; color:rgba(84, 85, 85, 0.877)">Үйлчилгээ</h1>
          <div class="text-border-bottom"></div>
        <!--gallery-->
@@ -35,38 +34,40 @@
               </div>
           </div>
       </section>
-  
-      <script>
-          baguetteBox.run('.compact-gallery', { animation: 'slideIn'});
-      </script>
     </div>
     </div>
        
      <!--Customer's comment-->
      <div class="container" style="padding-bottom:1%; padding-top:1%">
-     <div id="Customer" class="bg-white">
-       <div style="width:100%; display:inline-flex">
-         <div style="width:94%">
-          <h3 class="font" style="text-align: center; padding-top:2%; color:rgb(84, 85, 85)">Бидний үйлчлүүлэгчдийн сэтгэгдэл</h3>
-         </div>
-         <div style="width:6%">
-          <a href="https://www.tripadvisor.com/Hotel_Review-g1236128-d2158092-Reviews-Tamir_Wellness_Tourist_Camp-Gorkhi_Terelj_National_Park_Tov_Province.html">
-            <i class="fa fa-tripadvisor" id="tripadvisor" style="color:rgba(40,175,40,.719);"></i>
-          </a>
-          </div>
-      </div>
-       
-          <div class="text-border-bottom"></div>
-        <!--Customer slide-->
-          <div id="customer-area" class="owl-carousel owl-theme">
-              @foreach ($comment as $item)
-              <div class="comment-index">
-              <span class="comment-review-name">{{$item->name}}</span>
-                 <p>{{$item->comment}}</p>
+        <div id="Customer" class="bg-white">
+            <div class="cus-header">
+               <div class="col ul-col col-xs-12 col-md-2 col-sm-12">
+     
+               </div>
+              <div class="cus-title col ul-col col-xs-12 col-md-8 col-sm-12 ">
+                 <h3 class="font">Бидний үйлчлүүлэгчдийн сэтгэгдэл</h3>
               </div>
-              @endforeach
-     </div>
-    </div>
+              <div class="cus-logo col ul-col col-xs-12 col-md-2 col-sm-12 ">
+                 <a href="https://www.tripadvisor.com/Hotel_Review-g1236128-d2158092-Reviews-Tamir_Wellness_Tourist_Camp-Gorkhi_Terelj_National_Park_Tov_Province.html">
+                   <i class="fa fa-tripadvisor" id="tripadvisor" style="color:rgba(40,175,40,.719);"></i>
+                 </a>
+              </div>
+             </div>
+           
+            
+               <div class="text-border-bottom"></div>
+             <!--Customer slide-->
+               <div id="customer-area" class="owl-carousel owl-theme pt-3">
+               @foreach ($comment as $item)
+               <div class="comment-index">
+               <span class="comment-review-name">{{$item->name}}</span>
+                  <p>{{$item->comment}}</p>
+               </div>
+               @endforeach
+                
+             </div>
+               
+          </div>
     </div>
     <!--Contact-->
     <div class="container top-container">

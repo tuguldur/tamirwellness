@@ -1,7 +1,7 @@
 @extends('layouts.main-mn')
 @section('content')
 @section('title','Холбоо барих')
-<div class="container" style="margin-top:2%; padding-bottom:9.7%">
+<div class="container hero-bg" style="margin-top:2%; padding-bottom:9.7%">
         <div class="wrapper bg-white" style="padding-bottom:10%; padding-top:0%; margin-bottom:2%">
             <div class="row" >
                 <div class="col-md-12" style="text-align: center"><h1 class="font" style="padding-top: 2%">Холбоо барих</h1></div>

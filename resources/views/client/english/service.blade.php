@@ -11,33 +11,35 @@
     </div>
     
     <!---->
-    <div class="container" style="margin-bottom: 1%">
+    <div class="container hero-bg" style="margin-bottom: 1%">
     <!--Service 1-->
     @foreach ($service as $item)
         @if($item->id%2)
         <div class="container col-md-12 bg-white" style="padding-top:2%; padding-bottom:2%">
-            <div style="display: flex">
-              <div class="col-md-8" >
-                    <h2 class="font" style="text-align: center; padding-top:2%; color:rgba(84, 85, 85, 0.877)">{{$item->desc}}</h2>
-                    <p class="font">{{$item->desc}}</p>
-                        <a href="/service/{{$item->id}}" class="btn font" style="background-color:rgba(40, 175, 40, 0.719); color:white">Show more</a>
+            <div class="service-text-left">
+              <div class="col-lg-8 col-sm-12" >
+                    <h2 class="font" style="text-align: center; padding-top:2%; color:rgba(35, 35, 35, 0.877); font-size:16px">{{$item->title}}</h2>
+                    <p class="font" style="font-size:14px">{{str_limit($item->desc,400)}} <a href="/service/{{$item->id}}"> more</a></p>
                 </div>
-                <div class="col-md-4">
-                    <img src="{{asset($item->src)}}" style="width: 100%">
+                <div class="col-lg-4 col-sm-12">
+                    <a href="/service/{{$item->id}}">
+                        <div style="background:url({{asset($item->src)}}) center center; background-size: cover;" class="service-picture"></div>
+                    </a>
                 </div>
                 
             </div>
         </div>
         @else 
         <div class="container col-md-12 bg-white" style="padding-top:2%; padding-bottom:2%">
-            <div style="display: flex">
-                <div class="col-md-4">
-                    <img src="{{asset($item->src)}}" style="width: 100%">
+            <div class="service-text-right">
+                <div class="col-lg-4 col-sm-12">
+                        <a href="/service/{{$item->id}}">
+                            <div style="background:url({{asset($item->src)}}) center center; background-size: cover;" class="service-picture"></div>
+                        </a>
                 </div>
-                <div class="col-md-8" >
-                    <h2 class="font" style="text-align: center; padding-top:2%; color:rgba(84, 85, 85, 0.877)">{{$item->desc}}</h2>
-                        <p class="font">{{$item->desc}}</p>
-                        <a href="/service/{{$item->id}}" class="btn font" style="background-color:rgba(40, 175, 40, 0.719); color:white">Show more</a>
+                <div class="col-lg-8 col-sm-12">
+                        <h2 class="font" style="text-align: center; padding-top:2%; color:rgba(35, 35, 35, 0.877); font-size:16px">{{$item->title}}</h2>
+                        <p class="font" style="font-size:14px">{{str_limit($item->desc,400)}} <a href="/service/{{$item->id}}"> more</a></p>
                 </div>
             </div>
         </div>

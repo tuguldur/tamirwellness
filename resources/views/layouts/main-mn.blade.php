@@ -7,10 +7,10 @@
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('css/owl.theme.default.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/owl.theme.default.min.css')}}" />
     <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.8.1.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
     <link rel="stylesheet" href="{{asset('css/compact-gallery.css')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -39,24 +39,24 @@
             </div>
             
             <div>
-        <button id="book-btn-2" type="button" class="btn" style="background-color:rgba(40, 175, 40, 0.719); color:white" data-toggle="modal" data-target="#myModal">Book</button>
+        <button id="book-btn-2" type="button" class="btn" style="background-color:rgba(40, 175, 40, 0.719); color:white" data-toggle="modal" data-target="#myModal">Захиалга</button>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+          <ul class="navbar-nav dev-nav-mn ml-5" id="dev-nav">
+              <li class="nav-item {{ Request::is('mn') ? 'active' : '' }}">
                   <a class="nav-link" href="/mn">Нүүр</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item {{ Request::is('mn/service*') ? 'active' : '' }}">
                     <a class="nav-link" href="/mn/service">Үйлчилгээ</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item {{ Request::is('mn/comment') ? 'active' : '' }}">
                     <a class="nav-link" href="/mn/comment">Сэтгэгдэл</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item {{ Request::is('mn/contact') ? 'active' : '' }}">
                   <a class="nav-link" href="/mn/contact">Холбоо барих</a>
                 </li>
                 <li>
@@ -79,16 +79,16 @@
           
           <!-- Modal body -->
           <div class="modal-body">
-          <form style="width:100%; display:flex" action="{{url('/book') }}" method="POST">
+          <form class="book-form" action="{{url('/book') }}" method="POST">
               @csrf
-            <div class="col-md-6">
+              <div class="col-md-12 col-lg-6">
               <div class="col-md-12"><p class="formcss font" style="font-size:12px">Захиалгын мэдээллээ илгээх</p></div>
               <div class="col-md-12" id="formcss"><input type="text" class="form-control" id="name form" placeholder="Нэр" name="name" required autocomplete="off"></div>
               <div class="col-md-12" id="formcss"><input type="email" class="form-control" id="email form" placeholder="Цахим хаяг" name="email" required autocomplete="off"></div>
               <div class="col-md-12" id="formcss"><input type="phone" class="form-control" id="number form" placeholder="Утасны дугаар" name="phone_number" required autocomplete="off"></div>
               <div class="col-md-12" id="formcss"><textarea type="text" class="form-control" id="messagse form" placeholder="Хүсэлт" name="message" style="height: 110px" required autocomplete="off"></textarea></div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12 col-lg-6">
               <div class="col-md-12">
                 <p class="font" style="font-size:14px">Ирэх өдрөө сонгоно уу?</p>
                 <input id="datepicker" width="100%" name="start_date" required autocomplete="off" />
@@ -121,27 +121,23 @@
 <footer class="page-footer font-small">
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">
+    <div class="footer-copyright text-center py-3" id="footer">
       <div class="footer-text container" style="display:flex">
-      <a class="nav-link waves-effect waves-light px-2" href="/" target="_blank" style="padding-top:2%">
+      <a class="nav-link waves-effect waves-light lang" href="/mn" target="_blank">
         <i class="fa fa-language"></i>
-        <p style="line-height:75%">English</p>
+        <p>Change Language</p>
       </a>
-        <p style="line-height:500%">© 2019 Tamir Wellness. Ulaanbaatar, Mongolia. All rights reserved.</p>
-      <a class="nav-link waves-effect waves-light px-2" href="https://www.facebook.com/tamirwellness" target="_blank">
-        <i class="fab fa-facebook" style="line-height:450%"></i>
+        <p class="cr">© 2019 Tamir Wellness. Ulaanbaatar, Mongolia. All rights reserved.</p>
+      <a class="nav-link waves-effect waves-light px-2 s-b" href="https://www.facebook.com/tamirwellness" target="_blank">
+        <i class="fab fa-facebook"></i>
       </a>
-      <a class="nav-link waves-effect waves-light px-2" href="https://twitter.com/tamirwellness" target="_blank">
-        <i class="fab fa-twitter" style="line-height:450%"></i>
+      <a class="nav-link waves-effect waves-light px-2 s-b" href="https://twitter.com/tamirwellness" target="_blank">
+        <i class="fab fa-twitter"></i>
       </a>
     </div>
           
   </div>
-    <!-- Copyright -->
-  
   </footer>
-  <!-- Footer -->
-  
       <!--script-->
       <script type="text/javascript">
   

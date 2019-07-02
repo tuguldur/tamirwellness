@@ -1,6 +1,6 @@
 @extends('layouts.main-mn')
 @section('content')
-@section('title','Сэтгэгдэл')
+@section('title','Сэтгэгдлүүд')
     <!--slider-->
     <div class="container" style="padding-bottom:1%">
       <!--carousel slider-->
@@ -14,21 +14,16 @@
     </div>
     
     <!--Around-->
-    <div class="container" style="padding-bottom:1%; padding-top:1%">
+    <div class="container hero-bg" style="padding-bottom:1%; padding-top:1%">
      <div id="around" class="bg-white">
-       
          <h1 class="font" style="text-align: center; padding-top:2%; color:rgba(84, 85, 85, 0.877)">Сэтгэгдлүүд</h1>
          <div class="text-border-bottom"></div>
-         <div class="container font bg-white" style="margin-top:2%; padding-bottom:2%">
+         <div class="container font bg-white comment" style="margin-top:2%; padding-bottom:2%">
            @foreach ($comment as $item)
-           <h2 style="padding-left:5%">{{$item->name}}</h2>
+           <h2>{{$item->name}}</h2>
            <p>{{$item->comment}}</p>
            @endforeach
          </div>
          </div>
-       <!--gallery-->  
-      <script>
-          baguetteBox.run('.compact-gallery', { animation: 'slideIn'});
-      </script>
     </div>
 @endsection
