@@ -384,3 +384,9 @@ td {
     cursor: default;
     color: #555 !important;
 }
+p[data-f-id="pbf"] {
+    display: none;
+}
+.fr-wrapper > div:first-child {
+    display: none;
+}

@@ -432,3 +432,9 @@ body.modal-open {
     padding-bottom: 0;
     padding-top: 0;
 }
+p[data-f-id="pbf"] {
+    display: none;
+}
+.fr-wrapper > div:first-child {
+    display: none;
+}
